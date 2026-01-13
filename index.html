@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jysk Mobil Bartender | Cocktailservice i hele Jylland</title>
+  <meta name="description" content="Jysk Mobil Bartender tilbyder professionel cocktailservice til private fester i hele Jylland. Book mobil bartender i dag.">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #b58b2a, #000);
+      padding: 70px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 45px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2, h3 {
+      color: #f4c430;
+    }
+    .box {
+      background: #1c1c1c;
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      margin-top: 18px;
+      padding: 14px;
+      background: #f4c430;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .cta {
+      background: #f4c430;
+      color: #000;
+      padding: 14px 22px;
+      display: inline-block;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 15px;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #000;
+      color: #aaa;
+      font-size: 14px;
+    }
+    a {
+      color: #f4c430;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🍸 Jysk Mobil Bartender</h1>
+  <p><strong>Professionel cocktailservice til private fester</strong></p>
+  <p>📍 Vi dækker hele Jylland</p>
+  <p>Du køber alkoholen – vi mixer cocktails & skaber stemningen</p>
+  <a class="cta" href="#booking">Book bartender nu</a>
+</header>
+
+<section>
+  <h2>Hvad vi tilbyder</h2>
+  <div class="box">
+    ✔️ Mobil bartender til fødselsdage, firmafester, studenterfester & polterabends<br>
+    ✔️ 3–5 timers professionel bartender-service<br>
+    ✔️ Populære cocktailmenuer – noget for alle<br>
+    ✔️ Fast pris – ingen skjulte gebyrer<br>
+    ✔️ Erfaren, serviceminded & professionel<br>
+    ✔️ Dækker hele Jylland
+  </div>
+</section>
+
+<section>
+  <h2>Cocktailmenuer</h2>
+
+  <div class="menu">
+
+    <div class="box">
+      <h3>🍸 Klassisk & Sikker</h3>
+      Gin & Tonic<br>
+      Vodka Lemon<br>
+      Aperol Spritz<br>
+      Mojito<br>
+      Dark ’n Stormy
+    </div>
+
+    <div class="box">
+      <h3>🍹 Frisk & Sommer</h3>
+      Strawberry Mojito<br>
+      Moscow Mule<br>
+      Aperol Spritz<br>
+      Gin Hass<br>
+      Vodka Red Bull
+    </div>
+
+    <div class="box">
+      <h3>🍾 Fest & Luksus</h3>
+      Pornstar Martini<br>
+      Espresso Martini<br>
+      French 75<br>
+      Paloma<br>
+      Old Fashioned
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Sådan fungerer det</h2>
+  <div class="box">
+    1️⃣ Du kontakter os med dato, sted og antal gæster<br>
+    2️⃣ Du vælger cocktailmenu<br>
+    3️⃣ Vi sender indkøbsliste til alkoholen<br>
+    4️⃣ Vi møder op og serverer cocktails 🍸
+  </div>
+</section>
+
+<section id="booking">
+  <h2>Booking & kontakt</h2>
+
+  <div class="box">
+    <form action="mailto:booking.mobilbartender@gmail.com" method="post" enctype="text/plain">
+
+      <label>Navn *</label>
+      <input type="text" name="Navn" required>
+
+      <label>Email *</label>
+      <input type="email" name="Email" required>
+
+      <label>Telefon</label>
+      <input type="text" name="Telefon">
+
+      <label>Adresse / by *</label>
+      <input type="text" name="Adresse" required>
+
+      <label>Dato for arrangement *</label>
+      <input type="date" name="Dato" required>
+
+      <label>Antal gæster (ca.) *</label>
+      <input type="number" name="Gæster" required>
+
+      <label>Ønsket varighed</label>
+      <select name="Timer">
+        <option>3 timer</option>
+        <option>4 timer</option>
+        <option>5 timer</option>
+        <option>6+ timer</option>
+      </select>
+
+      <label>Vælg cocktailmenu</label>
+      <select name="Menu">
+        <option>Klassisk & Sikker</option>
+        <option>Frisk & Sommer</option>
+        <option>Fest & Luksus</option>
+      </select>
+
+      <label>Ekstra besked</label>
+      <textarea name="Besked" rows="4"></textarea>
+
+      <button type="submit">Send bookingforespørgsel</button>
+    </form>
+  </div>
+
+  <div class="box">
+    📩 Email: <a href="mailto:booking.mobilbartender@gmail.com">booking.mobilbartender@gmail.com</a><br>
+    📞 Telefon: <a href="tel:DITTELEFONNUMMER">DIT TELEFONNUMMER</a><br>
+    📍 Dækker hele Jylland
+  </div>
+</section>
+
+<footer>
+  © 2026 Jysk Mobil Bartender – Professionel cocktailservice i hele Jylland
+</footer>
+
+</body>
+</html>
