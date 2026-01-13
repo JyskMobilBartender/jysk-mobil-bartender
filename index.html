@@ -11,19 +11,19 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: #0d0d0d;
+      background: linear-gradient(120deg, #0a0a0a, #1a1a1a);
       color: #fff;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     a {
-      color: #ffd700;
+      color: #00e5ff;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
     }
     a:hover {
-      color: #fff;
+      color: #ffd700;
     }
 
     h1, h2, h3 {
@@ -32,17 +32,17 @@
     }
 
     section {
-      padding: 60px 20px;
+      padding: 70px 20px;
       max-width: 1100px;
       margin: auto;
     }
 
     /* --- Header --- */
     header {
-      background: linear-gradient(135deg, #b58b2a, #1a1a1a);
+      background: linear-gradient(135deg, #ffd700, #0a0a0a);
       padding: 100px 20px;
       text-align: center;
-      border-bottom: 4px solid #ffd700;
+      border-bottom: 4px solid #00e5ff;
     }
     header h1 {
       font-size: 3rem;
@@ -53,18 +53,18 @@
       margin: 8px 0;
     }
     .cta {
-      background: #ffd700;
+      background: #00e5ff;
       color: #000;
       padding: 15px 30px;
       display: inline-block;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
       margin-top: 20px;
       transition: background 0.3s, transform 0.3s;
     }
     .cta:hover {
-      background: #e6c200;
-      transform: translateY(-2px);
+      background: #00bcd4;
+      transform: translateY(-3px);
     }
 
     /* --- Bokse og kort --- */
@@ -72,18 +72,19 @@
       background: #1c1c1c;
       padding: 30px 25px;
       margin: 20px 0;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .box:hover {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.7);
     }
 
     .menu {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      gap: 30px;
     }
 
     /* --- Formular --- */
@@ -94,23 +95,23 @@
     }
     input, textarea, select {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       margin-top: 5px;
-      border-radius: 6px;
+      border-radius: 8px;
       border: none;
       background: #2a2a2a;
       color: #fff;
       font-size: 1rem;
     }
     input:focus, textarea:focus, select:focus {
-      outline: 2px solid #ffd700;
+      outline: 2px solid #00e5ff;
     }
     button {
       margin-top: 20px;
       padding: 16px;
       background: #ffd700;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
       font-size: 16px;
       cursor: pointer;
@@ -118,17 +119,17 @@
     }
     button:hover {
       background: #e6c200;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     /* --- Footer --- */
     footer {
       text-align: center;
-      padding: 30px;
-      background: #111;
+      padding: 35px;
+      background: #0a0a0a;
       color: #aaa;
       font-size: 14px;
-      border-top: 2px solid #ffd700;
+      border-top: 2px solid #00e5ff;
     }
   </style>
 </head>
@@ -208,7 +209,7 @@
       <input type="email" name="Email" required>
 
       <label>Telefon</label>
-      <input type="text" name="Telefon" required>
+      <input type="text" name="Telefon">
 
       <label>Adresse / by *</label>
       <input type="text" name="Adresse" required>
