@@ -1,328 +1,95 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jysk Mobil Bartender | Professionel barservice – uden besvær</title>
-  <meta name="description" content="Jysk Mobil Bartender tilbyder mobil bartender og cocktailservice i hele Jylland. Vælg 3, 4 eller 5 timer – professionel barservice uden besvær." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jysk Mobil Bartender | Professionel barservice – uden besvær</title>
 
-  <style>
-    :root{
-      /* Enkel, tidløs palette */
-      --bg:#0b0d10;
-      --panel:#111418;
-      --panel2:#151a20;
-      --line:rgba(255,255,255,0.08);
-      --text:#f2f4f7;
-      --muted:rgba(242,244,247,0.72);
-      --accent:#3b82f6;
-      --accentHover:#2563eb;
-      --btnText:#0b0d10;
-      --shadow: 0 10px 26px rgba(0,0,0,0.35);
-    }
+<style>
+:root{
+  --bg:#0b0d10; --line:rgba(255,255,255,0.08);
+  --text:#f2f4f7; --muted:rgba(242,244,247,0.72);
+  --accent:#3b82f6; --accentHover:#2563eb; --btnText:#0b0d10;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:var(--bg);color:var(--text)}
+a{color:var(--text);text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height:1.6;
-    }
-    a{ color: var(--text); text-decoration:none; }
-    .wrap{ max-width:1100px; margin:0 auto; padding:0 18px; }
+/* MENU – meget lille + skjult i top */
+nav{
+  position:sticky;top:0;z-index:999;
+  background:rgba(11,13,16,.95);
+  border-bottom:1px solid var(--line);
+  transform:translateY(-120%);
+  transition:.25s;
+}
+nav.show{transform:translateY(0)}
+.navrow{display:flex;justify-content:space-between;align-items:center;padding:6px 0}
+.brand{display:flex;gap:6px;align-items:center}
+.logo{width:20px;height:20px}
+.brandText strong{font-size:12px}
+.brandText span{font-size:10px;color:var(--muted)}
+.links{display:flex;gap:6px}
+.links a{font-size:12px;padding:4px 6px;border-radius:8px}
+.links a.book{background:var(--accent);color:var(--btnText)}
 
-    /* NAV */
-    nav{
-      position:sticky; top:0; z-index:999;
-      background: rgba(11,13,16,0.90);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line);
-    }
-    .navrow{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 0; gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      white-space:nowrap;
-    }
-    .logo{ width:32px; height:32px; flex:0 0 auto; }
-    .brandText{ display:flex; flex-direction:column; gap:2px; line-height:1.15; }
-    .brandText strong{ font-size:14px; letter-spacing:0.2px; }
-    .brandText span{ font-size:12px; color: var(--muted); }
+section,header{scroll-margin-top:60px}
 
-    .links{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-    .links a{
-      color: var(--text);
-      padding:9px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      font-weight:bold;
-      font-size:14px;
-      opacity:0.92;
-    }
-    .links a:hover{
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.08);
-      opacity:1;
-    }
-    .links a.book{
-      background: var(--accent);
-      color: var(--btnText);
-      border-color: rgba(0,0,0,0.10);
-    }
-    .links a.book:hover{ background: var(--accentHover); }
+/* HERO */
+header{padding:36px 0 16px}
+.hero{border:1px solid var(--line);border-radius:16px;padding:18px}
+.heroIn{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+@media(max-width:900px){.heroIn{grid-template-columns:1fr}}
+h1{font-size:38px;margin:8px 0}
+.sub{color:var(--muted)}
+.btn{padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#1a1f26}
+.btn.primary{background:var(--accent);color:var(--btnText)}
+.bullets{display:grid;grid-template-columns:1fr 1fr;gap:6px;color:var(--muted)}
 
-    /* HERO */
-    header{ padding:36px 0 16px 0; }
-    .hero{
-      border:1px solid var(--line);
-      border-radius:18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.20));
-      box-shadow: var(--shadow);
-    }
-    .heroIn{
-      padding:22px;
-      display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap:14px;
-      align-items:stretch;
-    }
-    @media (max-width: 900px){ .heroIn{ grid-template-columns:1fr; } }
+/* GENERELT */
+section{padding:18px 0}
+h2{font-size:22px;margin:0}
+.lead{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px}
+.price{font-size:32px;font-weight:bold}
+.list div{border-bottom:1px dashed rgba(255,255,255,.1);padding:6px 0}
+.list div:last-child{border:none}
 
-    .pill{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-      font-size:13px;
-    }
-    h1{
-      margin:10px 0 8px 0;
-      font-size:40px;
-      line-height:1.12;
-    }
-    @media (max-width: 450px){ h1{ font-size:34px; } }
-    .sub{ margin:0 0 14px 0; color: var(--muted); font-size:16px; }
+/* BOOKING */
+label{display:block;margin-top:10px;color:var(--muted);font-size:13px}
+input,select,textarea{width:100%;padding:10px;margin-top:5px;border-radius:12px;border:1px solid var(--line);background:#141820;color:white}
+button{width:100%;margin-top:14px;padding:12px;border-radius:12px;border:none;background:var(--accent);color:var(--btnText);font-weight:bold}
 
-    .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
-    .btn{
-      display:inline-block;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      font-weight:bold;
-    }
-    .btn.primary{
-      background: var(--accent);
-      color: var(--btnText);
-      border-color: rgba(0,0,0,0.10);
-    }
-    .btn.primary:hover{ background: var(--accentHover); }
+.bookingGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+@media(max-width:900px){.bookingGrid{grid-template-columns:1fr}}
 
-    .bullets{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px 12px;
-      margin-top:12px;
-      color: var(--muted);
-      font-size:14px;
-    }
-    @media (max-width: 520px){ .bullets{ grid-template-columns:1fr; } }
-
-    .sideCard{
-      border:1px solid var(--line);
-      background: rgba(0,0,0,0.18);
-      border-radius:16px;
-      padding:16px;
-    }
-    .sideCard h3{ margin:0 0 8px 0; font-size:16px; }
-    .sideCard p{ margin:0; color: var(--muted); font-size:14px; }
-    .divider{ height:1px; background: var(--line); margin:12px 0; }
-
-    .pillRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-    }
-    .pillBtn{
-      display:inline-block;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      font-weight:bold;
-      font-size:14px;
-    }
-    .pillBtn.primary{
-      background: var(--accent);
-      color: var(--btnText);
-      border-color: rgba(0,0,0,0.10);
-    }
-    .pillBtn.primary:hover{ background: var(--accentHover); }
-
-    /* SECTIONS */
-    section{ padding:20px 0; }
-    .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin: 10px 0 12px 0;
-    }
-    h2{ margin:0; font-size:22px; }
-    .lead{ margin:0; color: var(--muted); font-size:14px; }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:14px;
-    }
-    @media (max-width: 980px){ .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 600px){ .grid{ grid-template-columns: 1fr; } }
-
-    .card{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.22));
-    }
-    .card h3{ margin:0 0 8px 0; font-size:16px; }
-    .mini{ color: var(--muted); font-size:13px; margin:0; }
-
-    .list{ margin-top:10px; font-size:14px; color: var(--text); }
-    .list div{ padding:7px 0; border-bottom:1px dashed rgba(255,255,255,0.10); }
-    .list div:last-child{ border-bottom:none; }
-
-    /* PRICES */
-    .price{
-      font-size:34px;
-      font-weight:bold;
-      margin: 10px 0 8px 0;
-    }
-    .tag{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      background: rgba(59,130,246,0.14);
-      border:1px solid rgba(59,130,246,0.24);
-      color: #cfe0ff;
-      font-size:12px;
-      font-weight:bold;
-    }
-    .btnFull{ display:block; text-align:center; margin-top:12px; }
-
-    /* HOW IT WORKS */
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap:12px;
-    }
-    @media (max-width: 980px){ .steps{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 520px){ .steps{ grid-template-columns: 1fr; } }
-    .step{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,0.02);
-      border-radius:16px;
-      padding:14px;
-    }
-    .step strong{ display:block; margin-bottom:6px; }
-    .num{
-      display:inline-flex;
-      width:26px; height:26px;
-      align-items:center; justify-content:center;
-      border-radius:999px;
-      background: rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      margin-right:8px;
-      color: var(--muted);
-      font-size:13px;
-      font-weight:bold;
-    }
-
-    /* BOOKING */
-    .bookingGrid{
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap:14px;
-    }
-    @media (max-width: 900px){ .bookingGrid{ grid-template-columns: 1fr; } }
-
-    form label{ display:block; margin-top:12px; color: var(--muted); font-size:13px; }
-    input, textarea, select{
-      width:100%;
-      padding:12px;
-      margin-top:6px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.22);
-      color: var(--text);
-      outline:none;
-    }
-    input:focus, textarea:focus, select:focus{ border-color: rgba(59,130,246,0.55); }
-
-    button{
-      width:100%;
-      margin-top:16px;
-      padding:14px;
-      border-radius:14px;
-      border:none;
-      background: var(--accent);
-      color: var(--btnText);
-      font-weight:bold;
-      font-size:16px;
-      cursor:pointer;
-    }
-    button:hover{ background: var(--accentHover); }
-
-    footer{
-      border-top:1px solid var(--line);
-      padding:22px 0;
-      color: var(--muted);
-      font-size:13px;
-      text-align:center;
-      margin-top:10px;
-    }
-    .under{
-      color: var(--muted);
-      text-decoration: underline;
-    }
-  </style>
+footer{border-top:1px solid var(--line);padding:18px;color:var(--muted);text-align:center;font-size:13px}
+</style>
 </head>
-
 <body>
 
 <nav>
   <div class="wrap">
     <div class="navrow">
       <div class="brand">
-        <!-- Tidsløst, simpelt logo -->
-        <svg class="logo" viewBox="0 0 64 64" aria-label="Jysk Mobil Bartender logo" role="img">
-          <circle cx="32" cy="32" r="30" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
-          <path d="M18 18h28c0 9-7 16-14 16S18 27 18 18Z" fill="none" stroke="rgba(59,130,246,0.95)" stroke-width="2.6" stroke-linejoin="round"/>
-          <path d="M32 34v12" stroke="rgba(242,244,247,0.9)" stroke-width="2.6" stroke-linecap="round"/>
-          <path d="M24 50h16" stroke="rgba(242,244,247,0.9)" stroke-width="2.6" stroke-linecap="round"/>
+        <svg class="logo" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+          <path d="M18 18h28c0 9-7 16-14 16S18 27 18 18Z" fill="none" stroke="#3b82f6" stroke-width="3"/>
         </svg>
-
         <div class="brandText">
           <strong>Jysk Mobil Bartender</strong>
           <span>Professionel barservice – uden besvær</span>
         </div>
       </div>
-
       <div class="links">
-        <a href="#top">Forside</a>
-        <a href="#menuer">Menuer</a>
+        <a href="#top">Top</a>
+        <a href="#menuer">Menu</a>
         <a href="#priser">Priser</a>
-        <a href="#saadan">Sådan</a>
-        <a href="#kunder">Kunder</a>
-        <a href="#faq">FAQ</a>
-        <a class="book" href="#booking">Book</a>
+        <a href="#booking" class="book">Book</a>
       </div>
     </div>
   </div>
@@ -333,41 +100,20 @@
     <div class="hero">
       <div class="heroIn">
         <div>
-          <span class="pill">Mobil bartender • Fast pakkepris • Hele Jylland</span>
           <h1>Mobil bartender til din fest</h1>
-          <p class="sub">Professionel barservice – uden besvær. Du køber alkoholen, vi klarer cocktails og service.</p>
-
-          <div class="ctaRow">
-            <a class="btn primary" href="#booking">Book nu</a>
-            <a class="btn" href="#priser">Se pakker</a>
-          </div>
-
+          <p class="sub">Professionel barservice – uden besvær.</p>
+          <a class="btn primary" href="#booking">Book nu</a>
           <div class="bullets">
-            <div>✔ Samme pris uanset menu</div>
-            <div>✔ 3 / 4 / 5 timer</div>
-            <div>✔ Dækker hele Jylland</div>
-            <div>✔ Over 3 timer = min. 2 bartendere</div>
+            <div>✔ Hele Jylland</div>
+            <div>✔ Fast pakkepris</div>
+            <div>✔ 3, 4 eller 5 timer</div>
+            <div>✔ Over 3 timer = 2 bartendere</div>
           </div>
         </div>
-
-        <div class="sideCard">
-          <h3>Tryghed</h3>
-          <p><strong>Fast pakkepris</strong> – ingen ekstra gebyrer.</p>
-          <p><strong>Hurtigt svar</strong> – vi vender hurtigt tilbage.</p>
-          <div class="divider"></div>
-          <p><strong>Vigtigt:</strong> Ved <strong>over 3 timer</strong> kommer der altid mindst <strong>2 bartendere</strong> med ud.</p>
-          <div class="divider"></div>
-
-          <p class="mini"><strong>Kontakt</strong></p>
-          <p class="mini">
-            <a href="mailto:booking.mobilbartender@gmail.com" style="font-weight:bold;">booking.mobilbartender@gmail.com</a><br>
-            <a href="tel:+4571576050" style="font-weight:bold;">+45 71 57 60 50</a>
-          </p>
-
-          <div class="pillRow">
-            <a class="pillBtn primary" href="sms:+4571576050&body=Hej%20Jysk%20Mobil%20Bartender%20-%20jeg%20vil%20gerne%20booke.%20Dato:%20%20By:%20%20G%C3%A6ster:%20%20Timer:%20%203/4/5%20%20Menu:%20%20">Skriv SMS</a>
-            <a class="pillBtn" href="#booking">Booking</a>
-          </div>
+        <div class="card">
+          <strong>Kontakt</strong><br>
+          booking.mobilbartender@gmail.com<br>
+          +45 71 57 60 50
         </div>
       </div>
     </div>
@@ -376,258 +122,72 @@
 
 <section id="menuer">
   <div class="wrap">
-    <div class="sectionTitle">
-      <h2>Cocktailmenuer</h2>
-      <p class="lead">Vælg den menu I kan lide – prisen er den samme.</p>
-    </div>
-
+    <h2>Menuer</h2>
+    <p class="lead">Samme pris uanset menu.</p>
     <div class="grid">
-      <div class="card">
-        <h3>Klassisk & Sikker</h3>
-        <p class="mini">Klassikere der passer til de fleste fester.</p>
-        <div class="list">
-          <div>Gin & Tonic</div>
-          <div>Vodka Lemon</div>
-          <div>Aperol Spritz</div>
-          <div>Mojito</div>
-          <div>Dark ’n Stormy</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Frisk & Sommer</h3>
-        <p class="mini">Lette, friske favoritter – perfekte til fest.</p>
-        <div class="list">
-          <div>Strawberry Mojito</div>
-          <div>Moscow Mule</div>
-          <div>Aperol Spritz</div>
-          <div>Gin Hass</div>
-          <div>Vodka Red Bull</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Fest & Luksus</h3>
-        <p class="mini">Mere “wow” – når det gerne må føles ekstra.</p>
-        <div class="list">
-          <div>Pornstar Martini</div>
-          <div>Espresso Martini</div>
-          <div>French 75</div>
-          <div>Paloma</div>
-          <div>Old Fashioned</div>
-        </div>
-      </div>
+      <div class="card">Klassisk<br>Gin & Tonic, Vodka Lemon, Mojito</div>
+      <div class="card">Sommer<br>Gin Hass, Aperol, Moscow Mule</div>
+      <div class="card">Luksus<br>Pornstar, Espresso Martini</div>
     </div>
   </div>
 </section>
 
 <section id="priser">
   <div class="wrap">
-    <div class="sectionTitle">
-      <h2>Pakker & priser</h2>
-      <p class="lead">Du betaler kun for pakken – ingen ekstra priser.</p>
-    </div>
-
+    <h2>Pakker</h2>
     <div class="grid">
-      <div class="card">
-        <span class="tag">Mest valgt</span>
-        <h3 style="margin-top:10px;">3 timer</h3>
-        <div class="price">2.500 kr</div>
-        <p class="mini">Mobil bartender i 3 timer • 1 bartender</p>
-        <a class="btn primary btnFull" href="#booking" onclick="setTimer('3 timer')">Book 3 timer</a>
-      </div>
-
-      <div class="card">
-        <h3>4 timer</h3>
-        <div class="price">3.500 kr</div>
-        <p class="mini">Mobil bartender i 4 timer • <strong>min. 2 bartendere</strong></p>
-        <a class="btn primary btnFull" href="#booking" onclick="setTimer('4 timer')">Book 4 timer</a>
-      </div>
-
-      <div class="card">
-        <h3>5 timer</h3>
-        <div class="price">4.500 kr</div>
-        <p class="mini">Mobil bartender i 5 timer • <strong>min. 2 bartendere</strong></p>
-        <a class="btn primary btnFull" href="#booking" onclick="setTimer('5 timer')">Book 5 timer</a>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:14px;">
-      <h3>Inkluderet</h3>
-      <p class="mini">✔ Valgfri cocktailmenu • ✔ Barudstyr • ✔ Opsætning & oprydning • ✔ Hele Jylland</p>
-      <p class="mini" style="margin-top:10px;"><strong>Ved over 3 timer</strong> kommer der altid mindst <strong>2 bartendere</strong> med ud.</p>
-      <p class="mini" style="margin-top:10px;">Alkohol/ingredienser købes af kunden – vi sender indkøbsliste efter booking.</p>
-    </div>
-  </div>
-</section>
-
-<section id="saadan">
-  <div class="wrap">
-    <div class="sectionTitle">
-      <h2>Sådan fungerer det</h2>
-      <p class="lead">Simpelt, hurtigt og uden bøvl.</p>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <strong><span class="num">1</span>Book</strong>
-        <div class="mini">Send dato, by og antal gæster.</div>
-      </div>
-      <div class="step">
-        <strong><span class="num">2</span>Vælg menu</strong>
-        <div class="mini">Klassisk, Sommer eller Luksus.</div>
-      </div>
-      <div class="step">
-        <strong><span class="num">3</span>Indkøbsliste</strong>
-        <div class="mini">Du får en enkel liste over hvad du skal købe.</div>
-      </div>
-      <div class="step">
-        <strong><span class="num">4</span>Vi serverer</strong>
-        <div class="mini">Vi kommer og mixer cocktails hele aftenen.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="kunder">
-  <div class="wrap">
-    <div class="sectionTitle">
-      <h2>Det kunder typisk fremhæver</h2>
-      <p class="lead">Kort, realistisk og troværdigt.</p>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Professionelt setup</h3>
-        <p class="mini">God kommunikation før arrangementet og roligt, ryddeligt setup på dagen.</p>
-      </div>
-      <div class="card">
-        <h3>Hurtig servering</h3>
-        <p class="mini">Flow i baren, så gæsterne ikke står i kø hele aftenen.</p>
-      </div>
-      <div class="card">
-        <h3>Gode cocktails</h3>
-        <p class="mini">Menuen rammer bredt – og kan tilpasses efter festtype.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap">
-    <div class="sectionTitle">
-      <h2>FAQ</h2>
-      <p class="lead">De mest almindelige spørgsmål.</p>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Skal jeg selv købe alkohol?</h3>
-        <p class="mini">Ja. Vi sender en enkel indkøbsliste baseret på timer, gæster og menu.</p>
-      </div>
-
-      <div class="card">
-        <h3>Er der ekstra gebyrer?</h3>
-        <p class="mini">Nej. Du betaler kun for den valgte pakke.</p>
-      </div>
-
-      <div class="card">
-        <h3>Hvor kører I?</h3>
-        <p class="mini">Vi dækker hele Jylland.</p>
-      </div>
+      <div class="card"><h3>3 timer</h3><div class="price">2.500 kr</div><a class="btn primary" href="#booking" onclick="setTimer('3 timer')">Book</a></div>
+      <div class="card"><h3>4 timer</h3><div class="price">3.500 kr</div><p>Min. 2 bartendere</p><a class="btn primary" href="#booking" onclick="setTimer('4 timer')">Book</a></div>
+      <div class="card"><h3>5 timer</h3><div class="price">4.500 kr</div><p>Min. 2 bartendere</p><a class="btn primary" href="#booking" onclick="setTimer('5 timer')">Book</a></div>
     </div>
   </div>
 </section>
 
 <section id="booking">
   <div class="wrap">
-    <div class="sectionTitle">
-      <h2>Booking</h2>
-      <p class="lead">Udfyld formularen – vi svarer hurtigt.</p>
-    </div>
-
+    <h2>Booking</h2>
     <div class="bookingGrid">
       <div class="card">
-        <form action="mailto:booking.mobilbartender@gmail.com" method="post" enctype="text/plain" id="bookingForm">
-          <label>Navn *</label>
-          <input type="text" name="Navn" required>
-
-          <label>Email *</label>
-          <input type="email" name="Email" required>
-
-          <label>Telefon</label>
-          <input type="text" name="Telefon">
-
-          <label>By / adresse *</label>
-          <input type="text" name="Adresse" required>
-
-          <label>Dato for arrangement *</label>
-          <input type="date" name="Dato" required>
-
-          <label>Antal gæster (ca.) *</label>
-          <input type="number" name="Gæster" required>
-
-          <label>Varighed *</label>
-          <select name="Timer" id="timerSelect" required>
-            <option>3 timer</option>
-            <option>4 timer</option>
-            <option>5 timer</option>
+        <form action="mailto:booking.mobilbartender@gmail.com" method="post" enctype="text/plain">
+          <label>Navn</label><input name="Navn" required>
+          <label>Email</label><input name="Email" type="email" required>
+          <label>By</label><input name="By" required>
+          <label>Dato</label><input type="date" name="Dato" required>
+          <label>Gæster</label><input type="number" name="Gæster" required>
+          <label>Timer</label>
+          <select id="timerSelect" name="Timer">
+            <option>3 timer</option><option>4 timer</option><option>5 timer</option>
           </select>
-
-          <label>Cocktailmenu</label>
-          <select name="Menu">
-            <option>Klassisk & Sikker</option>
-            <option>Frisk & Sommer</option>
-            <option>Fest & Luksus</option>
-          </select>
-
-          <label>Ekstra besked</label>
-          <textarea name="Besked" rows="4" placeholder="Skriv evt. starttid, type fest og særlige ønsker..."></textarea>
-
-          <button type="submit">Send bookingforespørgsel</button>
+          <button type="submit">Send</button>
         </form>
       </div>
-
       <div class="card">
-        <h3>Kontakt</h3>
-        <p class="mini">📍 Hele Jylland</p>
-        <div class="divider"></div>
-
-        <p class="mini"><strong>Email</strong></p>
-        <p class="mini"><a href="mailto:booking.mobilbartender@gmail.com" style="font-weight:bold;">booking.mobilbartender@gmail.com</a></p>
-
-        <p class="mini" style="margin-top:10px;"><strong>Telefon</strong></p>
-        <p class="mini"><a href="tel:+4571576050" style="font-weight:bold;">+45 71 57 60 50</a></p>
-
-        <div class="pillRow">
-          <a class="pillBtn primary" href="sms:+4571576050&body=Hej%20Jysk%20Mobil%20Bartender%20-%20jeg%20vil%20gerne%20booke.%20Dato:%20%20By:%20%20G%C3%A6ster:%20%20Timer:%20%203/4/5%20%20Menu:%20%20">Skriv SMS</a>
-          <a class="pillBtn" href="tel:+4571576050">Ring op</a>
-        </div>
-
-        <div class="divider"></div>
-        <p class="mini"><strong>Vigtigt:</strong> Ved <strong>over 3 timer</strong> kommer der altid mindst <strong>2 bartendere</strong> med ud.</p>
+        Hele Jylland<br>
+        +45 71 57 60 50<br>
+        booking.mobilbartender@gmail.com<br><br>
+        Over 3 timer = min. 2 bartendere
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  © 2026 Jysk Mobil Bartender • <a class="under" href="#top">Til toppen</a>
-</footer>
+<footer>© 2026 Jysk Mobil Bartender</footer>
 
 <script>
-  // Sætter varighed i formularen når man klikker "Book 3/4/5 timer"
-  function setTimer(value){
-    var select = document.getElementById('timerSelect');
-    if(!select) return;
-    for (var i=0; i<select.options.length; i++){
-      if(select.options[i].text === value){
-        select.selectedIndex = i;
-        break;
-      }
-    }
-    select.focus();
+function setTimer(v){
+  var s=document.getElementById("timerSelect");
+  for(let i=0;i<s.options.length;i++){
+    if(s.options[i].text===v){s.selectedIndex=i;break;}
   }
+}
+(function(){
+  var nav=document.querySelector("nav");
+  function onScroll(){
+    if(window.scrollY>120){nav.classList.add("show");}
+    else{nav.classList.remove("show");}
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});
+})();
 </script>
 
 </body>
