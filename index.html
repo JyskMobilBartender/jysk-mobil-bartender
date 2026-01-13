@@ -1,121 +1,140 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jysk Mobil Bartender | Cocktailservice i hele Jylland</title>
-<meta name="description" content="Professionel cocktailservice til private fester i hele Jylland. Book din mobil bartender i dag.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jysk Mobil Bartender | Cocktailservice i hele Jylland</title>
+  <meta name="description" content="Jysk Mobil Bartender tilbyder professionel cocktailservice til private fester i hele Jylland. Book mobil bartender i dag.">
 
-<style>
-  /* --- Generelt --- */
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    background: #121212;
-    color: #f0f0f0;
-    line-height: 1.7;
-  }
-  a {
-    color: #ff7f50;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  a:hover { color: #fff; }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #b58b2a, #000);
+      padding: 70px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 45px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2, h3 { color: #f4c430; }
+    .box {
+      background: #1c1c1c;
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    label { display: block; margin-top: 12px; }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      margin-top: 18px;
+      padding: 14px;
+      background: #f4c430;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .cta {
+      background: #f4c430;
+      color: #000;
+      padding: 14px 22px;
+      display: inline-block;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 15px;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #000;
+      color: #aaa;
+      font-size: 14px;
+    }
+    a { color: #f4c430; text-decoration: none; font-weight: bold; }
 
-  h1,h2,h3 { margin-top: 0; font-weight: 600; }
-  h1 { font-size: 3rem; }
-  h2 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
-  h3 { font-size: 1.4rem; margin-bottom: 10px; }
-
-  section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-
-  /* --- Header --- */
-  header {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #1a1a1a, #222);
-    border-bottom: 2px solid #ff7f50;
-  }
-  header h1 { margin-bottom: 10px; }
-  header p { margin: 5px 0; font-size: 1.2rem; }
-  .cta {
-    margin-top: 20px;
-    background: #ff7f50;
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    display: inline-block;
-    transition: background 0.3s, transform 0.3s;
-  }
-  .cta:hover {
-    background: #ff603f;
-    transform: translateY(-3px);
-  }
-
-  /* --- Kort og bokse --- */
-  .box {
-    background: #1e1e1e;
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .box:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.7);
-  }
-
-  .menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-  }
-
-  /* --- Formular --- */
-  label { font-weight: bold; margin-top: 12px; display: block; }
-  input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border-radius: 8px;
-    border: none;
-    background: #2a2a2a;
-    color: #fff;
-  }
-  input:focus, textarea:focus, select:focus { outline: 2px solid #ff7f50; }
-
-  button {
-    background: #ff7f50;
-    border: none;
-    padding: 16px;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 16px;
-    transition: background 0.3s, transform 0.3s;
-  }
-  button:hover { background: #ff603f; transform: translateY(-3px); }
-
-  footer {
-    text-align: center;
-    padding: 28px;
-    background: #000;
-    color: #888;
-    font-size: 14px;
-  }
-</style>
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #000;
+      border-bottom: 1px solid #222;
+    }
+    nav .navwrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .brand {
+      color: #f4c430;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+    }
+    nav .links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+    nav a:hover { background: #1c1c1c; }
+    nav a.active { background: #f4c430; color: #000; }
+    nav a.book { background: #f4c430; color: #000; }
+  </style>
 </head>
 
 <body>
+
+<nav>
+  <div class="navwrap">
+    <div class="brand">🍸 Jysk Mobil Bartender</div>
+    <div class="links">
+      <a class="active" href="index.html">Forside</a>
+      <a href="priser.html">Priser</a>
+      <a class="book" href="#booking">Book</a>
+    </div>
+  </div>
+</nav>
+
 <header>
   <h1>🍸 Jysk Mobil Bartender</h1>
-  <p>Professionel cocktailservice til private fester</p>
-  <p>📍 Vi dækker hele Jylland</p>
+  <p><strong>Mobil bartender til fest i hele Jylland</strong></p>
   <p>Du køber alkoholen – vi mixer cocktails & skaber stemningen</p>
   <a class="cta" href="#booking">Book bartender nu</a>
+  <div style="margin-top:10px;">
+    <a class="cta" href="priser.html">Se priser</a>
+  </div>
 </header>
 
 <section>
@@ -124,38 +143,47 @@
     ✔️ Mobil bartender til fødselsdage, firmafester, studenterfester & polterabends<br>
     ✔️ 3–5 timers professionel bartender-service<br>
     ✔️ Populære cocktailmenuer – noget for alle<br>
-    ✔️ Fast pris – ingen skjulte gebyrer<br>
-    ✔️ Erfaren & serviceminded bartender<br>
+    ✔️ Nemt bookingflow – hurtigt svar<br>
     ✔️ Dækker hele Jylland
   </div>
 </section>
 
 <section>
   <h2>Cocktailmenuer</h2>
+
   <div class="menu">
     <div class="box">
       <h3>🍸 Klassisk & Sikker</h3>
-      • Gin & Tonic<br>
-      • Vodka Lemon<br>
-      • Aperol Spritz<br>
-      • Mojito<br>
-      • Dark ’n Stormy
+      Gin & Tonic<br>
+      Vodka Lemon<br>
+      Aperol Spritz<br>
+      Mojito<br>
+      Dark ’n Stormy
     </div>
+
     <div class="box">
       <h3>🍹 Frisk & Sommer</h3>
-      • Strawberry Mojito<br>
-      • Moscow Mule<br>
-      • Aperol Spritz<br>
-      • Gin Hass<br>
-      • Vodka Red Bull
+      Strawberry Mojito<br>
+      Moscow Mule<br>
+      Aperol Spritz<br>
+      Gin Hass<br>
+      Vodka Red Bull
     </div>
+
     <div class="box">
       <h3>🍾 Fest & Luksus</h3>
-      • Pornstar Martini<br>
-      • Espresso Martini<br>
-      • French 75<br>
-      • Paloma<br>
-      • Old Fashioned
+      Pornstar Martini<br>
+      Espresso Martini<br>
+      French 75<br>
+      Paloma<br>
+      Old Fashioned
+    </div>
+  </div>
+
+  <div class="box">
+    <strong>Prisen er den samme uanset menu.</strong> Du vælger bare 3, 4 eller 5 timer.
+    <div style="margin-top:10px;">
+      <a class="cta" href="priser.html">Se alle priser</a>
     </div>
   </div>
 </section>
@@ -164,48 +192,59 @@
   <h2>Sådan fungerer det</h2>
   <div class="box">
     1️⃣ Du kontakter os med dato, sted og antal gæster<br>
-    2️⃣ Du vælger cocktailmenu<br>
-    3️⃣ Vi sender indkøbsliste til alkoholen<br>
+    2️⃣ Du vælger en cocktailmenu<br>
+    3️⃣ Vi sender en indkøbsliste<br>
     4️⃣ Vi møder op og serverer cocktails 🍸
   </div>
 </section>
 
 <section id="booking">
   <h2>Booking & kontakt</h2>
+
   <div class="box">
     <form action="mailto:booking.mobilbartender@gmail.com" method="post" enctype="text/plain">
       <label>Navn *</label>
       <input type="text" name="Navn" required>
+
       <label>Email *</label>
       <input type="email" name="Email" required>
+
       <label>Telefon</label>
       <input type="text" name="Telefon">
+
       <label>Adresse / by *</label>
       <input type="text" name="Adresse" required>
+
       <label>Dato for arrangement *</label>
       <input type="date" name="Dato" required>
+
       <label>Antal gæster (ca.) *</label>
       <input type="number" name="Gæster" required>
-      <label>Ønsket varighed</label>
-      <select name="Timer">
+
+      <label>Varighed *</label>
+      <select name="Timer" required>
         <option>3 timer</option>
         <option>4 timer</option>
         <option>5 timer</option>
       </select>
-      <label>Vælg cocktailmenu</label>
+
+      <label>Cocktailmenu</label>
       <select name="Menu">
         <option>Klassisk & Sikker</option>
         <option>Frisk & Sommer</option>
         <option>Fest & Luksus</option>
       </select>
+
       <label>Ekstra besked</label>
       <textarea name="Besked" rows="4"></textarea>
+
       <button type="submit">Send bookingforespørgsel</button>
     </form>
   </div>
+
   <div class="box">
     📩 Email: <a href="mailto:booking.mobilbartender@gmail.com">booking.mobilbartender@gmail.com</a><br>
-    📞 Telefon: <a href="tel:+4571576050">+45 71 57 60 50</a><br>
+    📞 Telefon: <a href="tel:DITTELEFONNUMMER">DIT TELEFONNUMMER</a><br>
     📍 Dækker hele Jylland
   </div>
 </section>
