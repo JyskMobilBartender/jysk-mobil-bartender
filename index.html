@@ -5,252 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jysk Mobil Bartender | Cocktailservice i hele Jylland</title>
   <meta name="description" content="Jysk Mobil Bartender tilbyder professionel cocktailservice til private fester i hele Jylland. Book mobil bartender i dag.">
-
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #111;
-      color: #fff;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, #b58b2a, #000);
-      padding: 70px 20px;
-      text-align: center;
-    }
-    section {
-      padding: 45px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h1, h2, h3 { color: #f4c430; }
-    .box {
-      background: #1c1c1c;
-      padding: 25px;
-      margin: 20px 0;
-      border-radius: 8px;
-    }
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    label { display: block; margin-top: 12px; }
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: none;
-    }
-    button {
-      margin-top: 18px;
-      padding: 14px;
-      background: #f4c430;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .cta {
-      background: #f4c430;
-      color: #000;
-      padding: 14px 22px;
-      display: inline-block;
-      border-radius: 6px;
-      font-weight: bold;
-      margin-top: 15px;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #000;
-      color: #aaa;
-      font-size: 14px;
-    }
-    a { color: #f4c430; text-decoration: none; font-weight: bold; }
-
-    /* NAVIGATION */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: #000;
-      border-bottom: 1px solid #222;
-    }
-    nav .navwrap {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      justify-content: space-between;
-    }
-    nav .brand {
-      color: #f4c430;
-      font-weight: bold;
-      letter-spacing: 0.2px;
-    }
-    nav .links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 10px;
-      border-radius: 6px;
-    }
-    nav a:hover { background: #1c1c1c; }
-    nav a.active { background: #f4c430; color: #000; }
-    nav a.book { background: #f4c430; color: #000; }
+    html { scroll-behavior:smooth; }
+    body{font-family:Arial,sans-serif;margin:0;background:#111;color:#fff;line-height:1.6}
+    header{background:linear-gradient(135deg,#b58b2a,#000);padding:70px 20px;text-align:center}
+    section{padding:45px 20px;max-width:1000px;margin:auto}
+    h1,h2,h3{color:#f4c430}
+    .box{background:#1c1c1c;padding:25px;margin:20px 0;border-radius:8px}
+    .menu,.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .price{font-size:30px;font-weight:bold;margin:10px 0}
+    label{display:block;margin-top:12px}
+    input,textarea,select{width:100%;padding:10px;margin-top:5px;border-radius:5px;border:none}
+    button{margin-top:18px;padding:14px;background:#f4c430;border:none;border-radius:5px;font-weight:bold;font-size:16px;cursor:pointer}
+    .cta{background:#f4c430;color:#000;padding:14px 22px;display:inline-block;border-radius:6px;font-weight:bold;margin-top:15px;text-decoration:none}
+    footer{text-align:center;padding:25px;background:#000;color:#aaa;font-size:14px}
+    a{color:#f4c430;text-decoration:none;font-weight:bold}
+    .muted{color:#bbb}
+    /* NAV */
+    nav{position:sticky;top:0;z-index:999;background:#000;border-bottom:1px solid #222}
+    nav .navwrap{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;gap:14px;align-items:center;justify-content:space-between}
+    nav .brand{color:#f4c430;font-weight:bold}
+    nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    nav a{color:#fff;padding:8px 10px;border-radius:6px}
+    nav a:hover{background:#1c1c1c}
+    nav a.book{background:#f4c430;color:#000}
   </style>
 </head>
-
 <body>
 
 <nav>
   <div class="navwrap">
     <div class="brand">🍸 Jysk Mobil Bartender</div>
     <div class="links">
-      <a class="active" href="index.html">Forside</a>
-      <a href="priser.html">Priser</a>
+      <a href="#top">Forside</a>
+      <a href="#priser">Priser</a>
+      <a href="#anmeldelser">Anmeldelser</a>
+      <a href="#faq">FAQ</a>
       <a class="book" href="#booking">Book</a>
     </div>
   </div>
 </nav>
 
-<header>
+<header id="top">
   <h1>🍸 Jysk Mobil Bartender</h1>
   <p><strong>Mobil bartender til fest i hele Jylland</strong></p>
   <p>Du køber alkoholen – vi mixer cocktails & skaber stemningen</p>
   <a class="cta" href="#booking">Book bartender nu</a>
-  <div style="margin-top:10px;">
-    <a class="cta" href="priser.html">Se priser</a>
-  </div>
 </header>
 
 <section>
   <h2>Hvad vi tilbyder</h2>
   <div class="box">
-    ✔️ Mobil bartender til fødselsdage, firmafester, studenterfester & polterabends<br>
-    ✔️ 3–5 timers professionel bartender-service<br>
-    ✔️ Populære cocktailmenuer – noget for alle<br>
-    ✔️ Nemt bookingflow – hurtigt svar<br>
-    ✔️ Dækker hele Jylland
+    ✔ Mobil bartender til alle fester<br>
+    ✔ 3–5 timers professionel service<br>
+    ✔ Populære cocktailmenuer<br>
+    ✔ Hurtigt svar & nem booking<br>
+    ✔ Dækker hele Jylland
   </div>
 </section>
 
 <section>
   <h2>Cocktailmenuer</h2>
-
   <div class="menu">
-    <div class="box">
-      <h3>🍸 Klassisk & Sikker</h3>
-      Gin & Tonic<br>
-      Vodka Lemon<br>
-      Aperol Spritz<br>
-      Mojito<br>
-      Dark ’n Stormy
-    </div>
-
-    <div class="box">
-      <h3>🍹 Frisk & Sommer</h3>
-      Strawberry Mojito<br>
-      Moscow Mule<br>
-      Aperol Spritz<br>
-      Gin Hass<br>
-      Vodka Red Bull
-    </div>
-
-    <div class="box">
-      <h3>🍾 Fest & Luksus</h3>
-      Pornstar Martini<br>
-      Espresso Martini<br>
-      French 75<br>
-      Paloma<br>
-      Old Fashioned
-    </div>
+    <div class="box"><h3>🍸 Klassisk</h3>Gin & Tonic<br>Vodka Lemon<br>Aperol Spritz<br>Mojito<br>Dark ’n Stormy</div>
+    <div class="box"><h3>🍹 Sommer</h3>Strawberry Mojito<br>Moscow Mule<br>Aperol Spritz<br>Gin Hass<br>Vodka Red Bull</div>
+    <div class="box"><h3>🍾 Luksus</h3>Pornstar Martini<br>Espresso Martini<br>French 75<br>Paloma<br>Old Fashioned</div>
   </div>
+  <div class="box"><strong>Prisen er den samme uanset menu.</strong> Vælg 3, 4 eller 5 timer.</div>
+</section>
 
-  <div class="box">
-    <strong>Prisen er den samme uanset menu.</strong> Du vælger bare 3, 4 eller 5 timer.
-    <div style="margin-top:10px;">
-      <a class="cta" href="priser.html">Se alle priser</a>
-    </div>
+<section id="priser">
+  <h2>Priser</h2>
+  <div class="box"><strong>Kun pakkepris – ingen ekstra gebyrer.</strong><br><span class="muted">Alkohol købes af kunden.</span></div>
+  <div class="prices">
+    <div class="box"><h3>3 timer</h3><div class="price">2.500 kr</div><a class="cta" href="#booking">Book 3 timer</a></div>
+    <div class="box"><h3>4 timer</h3><div class="price">3.500 kr</div><a class="cta" href="#booking">Book 4 timer</a></div>
+    <div class="box"><h3>5 timer</h3><div class="price">4.500 kr</div><a class="cta" href="#booking">Book 5 timer</a></div>
   </div>
 </section>
 
-<section>
-  <h2>Sådan fungerer det</h2>
-  <div class="box">
-    1️⃣ Du kontakter os med dato, sted og antal gæster<br>
-    2️⃣ Du vælger en cocktailmenu<br>
-    3️⃣ Vi sender en indkøbsliste<br>
-    4️⃣ Vi møder op og serverer cocktails 🍸
-  </div>
+<section id="anmeldelser">
+  <h2>Anmeldelser</h2>
+  <div class="box">⭐⭐⭐⭐⭐ “Fantastisk service og lækre drinks.” <div class="muted">– Maria, Aarhus</div></div>
+  <div class="box">⭐⭐⭐⭐⭐ “Nem booking og god stemning.” <div class="muted">– Jonas, Aalborg</div></div>
+  <div class="box">⭐⭐⭐⭐⭐ “Gav festen det ekstra.” <div class="muted">– Louise, Kolding</div></div>
+</section>
+
+<section id="faq">
+  <h2>FAQ</h2>
+  <div class="box"><strong>Køber jeg selv alkohol?</strong><br>Ja – vi sender indkøbsliste.</div>
+  <div class="box"><strong>Hvor kører I?</strong><br>Hele Jylland.</div>
+  <div class="box"><strong>Hvornår skal jeg booke?</strong><br>Så tidligt som muligt.</div>
 </section>
 
 <section id="booking">
-  <h2>Booking & kontakt</h2>
-
+  <h2>Booking</h2>
   <div class="box">
     <form action="mailto:booking.mobilbartender@gmail.com" method="post" enctype="text/plain">
-      <label>Navn *</label>
-      <input type="text" name="Navn" required>
-
-      <label>Email *</label>
-      <input type="email" name="Email" required>
-
-      <label>Telefon</label>
-      <input type="text" name="Telefon">
-
-      <label>Adresse / by *</label>
-      <input type="text" name="Adresse" required>
-
-      <label>Dato for arrangement *</label>
-      <input type="date" name="Dato" required>
-
-      <label>Antal gæster (ca.) *</label>
-      <input type="number" name="Gæster" required>
-
-      <label>Varighed *</label>
-      <select name="Timer" required>
-        <option>3 timer</option>
-        <option>4 timer</option>
-        <option>5 timer</option>
-      </select>
-
-      <label>Cocktailmenu</label>
-      <select name="Menu">
-        <option>Klassisk & Sikker</option>
-        <option>Frisk & Sommer</option>
-        <option>Fest & Luksus</option>
-      </select>
-
-      <label>Ekstra besked</label>
-      <textarea name="Besked" rows="4"></textarea>
-
-      <button type="submit">Send bookingforespørgsel</button>
+      <label>Navn*</label><input type="text" name="Navn" required>
+      <label>Email*</label><input type="email" name="Email" required>
+      <label>Telefon</label><input type="text" name="Telefon">
+      <label>By*</label><input type="text" name="By" required>
+      <label>Dato*</label><input type="date" name="Dato" required>
+      <label>Gæster*</label><input type="number" name="Gæster" required>
+      <label>Timer*</label>
+      <select name="Timer" required><option>3 timer</option><option>4 timer</option><option>5 timer</option></select>
+      <label>Menu</label>
+      <select name="Menu"><option>Klassisk</option><option>Sommer</option><option>Luksus</option></select>
+      <button type="submit">Send booking</button>
     </form>
   </div>
-
   <div class="box">
-    📩 Email: <a href="mailto:booking.mobilbartender@gmail.com">booking.mobilbartender@gmail.com</a><br>
-    📞 Telefon: <a href="tel:DITTELEFONNUMMER">DIT TELEFONNUMMER</a><br>
-    📍 Dækker hele Jylland
+    📩 <a href="mailto:booking.mobilbartender@gmail.com">booking.mobilbartender@gmail.com</a><br>
+    📞 <a href="tel:+4571576050">+45 71 57 60 50</a><br>
+    📍 Hele Jylland
   </div>
 </section>
 
 <footer>
-  © 2026 Jysk Mobil Bartender – Professionel cocktailservice i hele Jylland
+  © 2026 Jysk Mobil Bartender
 </footer>
 
 </body>
