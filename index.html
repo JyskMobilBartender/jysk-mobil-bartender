@@ -16,23 +16,28 @@ body{margin:0;font-family:Arial;background:var(--bg);color:var(--text)}
 a{color:var(--text);text-decoration:none}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* MENU – meget lille + skjult i top */
-nav{
-  position:sticky;top:0;z-index:999;
+/* TOP BOOK KNAP */
+.topBook{
+  position:sticky;
+  top:0;
+  z-index:999;
+  display:flex;
+  justify-content:flex-end;
+  padding:6px 0;
   background:rgba(11,13,16,.95);
   border-bottom:1px solid var(--line);
   transform:translateY(-120%);
   transition:.25s;
 }
-nav.show{transform:translateY(0)}
-.navrow{display:flex;justify-content:space-between;align-items:center;padding:6px 0}
-.brand{display:flex;gap:6px;align-items:center}
-.logo{width:20px;height:20px}
-.brandText strong{font-size:12px}
-.brandText span{font-size:10px;color:var(--muted)}
-.links{display:flex;gap:6px}
-.links a{font-size:12px;padding:4px 6px;border-radius:8px}
-.links a.book{background:var(--accent);color:var(--btnText)}
+.topBook.show{transform:translateY(0)}
+.topBook a{
+  background:var(--accent);
+  color:var(--btnText);
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
 
 section,header{scroll-margin-top:60px}
 
@@ -72,28 +77,11 @@ footer{border-top:1px solid var(--line);padding:18px;color:var(--muted);text-ali
 </head>
 <body>
 
-<nav>
+<div class="topBook" id="topBook">
   <div class="wrap">
-    <div class="navrow">
-      <div class="brand">
-        <svg class="logo" viewBox="0 0 64 64">
-          <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
-          <path d="M18 18h28c0 9-7 16-14 16S18 27 18 18Z" fill="none" stroke="#3b82f6" stroke-width="3"/>
-        </svg>
-        <div class="brandText">
-          <strong>Jysk Mobil Bartender</strong>
-          <span>Professionel barservice – uden besvær</span>
-        </div>
-      </div>
-      <div class="links">
-        <a href="#top">Top</a>
-        <a href="#menuer">Menu</a>
-        <a href="#priser">Priser</a>
-        <a href="#booking" class="book">Book</a>
-      </div>
-    </div>
+    <a href="#booking">Book</a>
   </div>
-</nav>
+</div>
 
 <header id="top">
   <div class="wrap">
@@ -181,10 +169,10 @@ function setTimer(v){
   }
 }
 (function(){
-  var nav=document.querySelector("nav");
+  var bar=document.getElementById("topBook");
   function onScroll(){
-    if(window.scrollY>120){nav.classList.add("show");}
-    else{nav.classList.remove("show");}
+    if(window.scrollY>120){bar.classList.add("show");}
+    else{bar.classList.remove("show");}
   }
   window.addEventListener("scroll",onScroll,{passive:true});
 })();
