@@ -4,453 +4,726 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jysk Mobil Bartender | Professionel barservice – uden besvær</title>
-  <meta name="description" content="Jysk Mobil Bartender tilbyder mobil bartender og cocktailservice i hele Jylland. Vælg 3, 4 eller 5 timer – professionel barservice uden besvær." />
+  <meta name="description" content="Mobil bartender i hele Jylland. Vælg 3, 4 eller 5 timer – professionel barservice uden besvær." />
+
+  <!-- Fonts (serif-look som på dine billeder) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
+      --bg:#f6f2ea;           /* varm hvid/beige baggrund */
+      --paper:#fbf7f0;        /* sektion baggrund */
       --card:#ffffff;
+      --text:#141414;
+      --muted:#6b6b6b;
+      --line:rgba(20,20,20,0.10);
 
-      /* Guld tema (professionelt) */
       --gold:#b08a2e;
       --gold2:#d9b45b;
-      --goldHover:#9b7726;
+      --goldSoft: rgba(176,138,46,0.14);
 
-      --shadow: 0 12px 28px rgba(17,24,39,0.10);
-      --shadow2: 0 10px 18px rgba(17,24,39,0.08);
-      --radius: 16px;
+      --nav:#ece8e0;
+      --shadow: 0 18px 40px rgba(20,20,20,0.10);
+      --shadow2: 0 12px 22px rgba(20,20,20,0.10);
+
+      --radius:20px;
+      --radius2:16px;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #fff, #fbfbfb);
-      color: var(--text);
-      line-height:1.6;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: var(--bg);
+      line-height:1.55;
     }
-    a{ color: inherit; text-decoration:none; }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
     .wrap{ max-width:1100px; margin:0 auto; padding:0 18px; }
 
-    /* ===== Slim topbar (professionel) ===== */
-    .topbar{
+    /* ===== Top Navigation (som på billedet) ===== */
+    .top{
       position: sticky;
-      top: 0;
+      top:0;
       z-index: 999;
-      background: rgba(255,255,255,0.92);
+      background: rgba(236,232,224,0.86);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-      transform: translateY(-120%);
-      transition: transform 220ms ease;
+      border-bottom:1px solid rgba(20,20,20,0.08);
     }
-    .topbar.show{ transform: translateY(0); }
-
-    .topbar .row{
+    .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      padding: 10px 0;
+      gap:14px;
+      padding: 14px 0;
     }
 
     .brand{
-      display:flex; align-items:center; gap:10px;
-      min-width: 0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
     }
-    .logo{
-      width:32px; height:32px; flex:0 0 auto;
-      filter: drop-shadow(0 8px 12px rgba(17,24,39,0.10));
+    .brandMark{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--gold2), var(--gold));
+      display:grid;
+      place-items:center;
+      box-shadow: 0 12px 20px rgba(176,138,46,0.18);
+      flex:0 0 auto;
     }
     .brandText{
-      display:flex; flex-direction:column; gap:2px;
-      min-width:0;
+      display:flex;
+      flex-direction:column;
       line-height:1.1;
+      min-width:0;
     }
     .brandText strong{
-      font-size:14px; letter-spacing:0.2px;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      font-family: "Playfair Display", serif;
+      font-weight: 800;
+      letter-spacing:0.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
     .brandText span{
-      font-size:12px; color: var(--muted);
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
     .navlinks{
-      display:flex; align-items:center; gap:8px; flex-wrap:wrap;
-      justify-content:flex-end;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:center;
+      flex:1;
     }
-    .navlinks a.link{
-      font-size:13px;
-      padding:7px 10px;
+    .navlinks a{
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(20,20,20,0.70);
+      padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid transparent;
-      color: var(--text);
+      transition: .18s;
     }
-    .navlinks a.link:hover{
-      border-color: var(--line);
-      background: #fafafa;
+    .navlinks a:hover{
+      background: rgba(255,255,255,0.55);
+      border-color: rgba(20,20,20,0.08);
+      color: rgba(20,20,20,0.92);
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
-      padding: 10px 14px;
+      gap:10px;
+      padding: 12px 18px;
       border-radius: 999px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(20,20,20,0.10);
       background: #fff;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
       cursor:pointer;
-      transition: transform .08s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      transition: transform .08s ease, box-shadow .18s ease, background .18s ease;
+      white-space:nowrap;
     }
     .btn:active{ transform: translateY(1px); }
 
-    .btn.primary{
-      border-color: rgba(176,138,46,0.28);
+    .btn.gold{
       background: linear-gradient(135deg, var(--gold2), var(--gold));
-      color: #111827;
-      box-shadow: 0 10px 18px rgba(176,138,46,0.18);
+      border-color: rgba(176,138,46,0.30);
+      box-shadow: 0 14px 20px rgba(176,138,46,0.20);
     }
-    .btn.primary:hover{
-      background: linear-gradient(135deg, var(--gold2), var(--goldHover));
-      box-shadow: 0 12px 22px rgba(176,138,46,0.22);
+    .btn.gold:hover{
+      box-shadow: 0 18px 26px rgba(176,138,46,0.24);
     }
-
-    /* På mobil: skjul links, behold kun Book */
-    @media (max-width: 540px){
-      .navlinks a.link{ display:none; }
-      .brandText span{ display:none; }
-      .topbar .row{ padding:8px 0; }
-      .btn{ padding:9px 12px; font-size:13px; }
-      .logo{ width:28px; height:28px; }
+    .btn.outline{
+      background: transparent;
+      border-color: rgba(176,138,46,0.35);
+      color: var(--gold);
+    }
+    .btn.outline:hover{
+      background: rgba(255,255,255,0.55);
     }
 
-    header, section{ scroll-margin-top: 80px; }
-
-    /* ===== Hero ===== */
-    header{
-      padding: 38px 0 16px 0;
+    /* Mobil: vis kun Book Nu + logo */
+    @media (max-width: 720px){
+      .navlinks{ display:none; }
+      .btn{ padding: 11px 14px; font-size: 13px; }
+      .topbar{ padding: 10px 0; }
     }
+
+    header, section{ scroll-margin-top: 90px; }
+
+    /* ===== Hero (som på billedet) ===== */
     .hero{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        radial-gradient(900px 300px at 15% 0%, rgba(217,180,91,0.20), transparent 60%),
-        radial-gradient(700px 260px at 90% 10%, rgba(176,138,46,0.12), transparent 55%),
-        #ffffff;
-      box-shadow: var(--shadow);
+      margin: 16px 0 22px 0;
+      border-radius: 22px;
       overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(20,20,20,0.06);
+      background: #fff;
     }
-    .heroIn{
+
+    .heroGrid{
       display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap:16px;
-      padding: 22px;
-      align-items:stretch;
-    }
-    @media (max-width: 900px){
-      .heroIn{ grid-template-columns: 1fr; }
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 520px;
     }
 
-    .pill{
-      display:inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(176,138,46,0.25);
-      background: rgba(217,180,91,0.16);
-      color: #3b2f13;
-      font-weight:700;
-      font-size: 12px;
+    .heroLeft{
+      background: #2f4259; /* mørk blå som screenshot */
+      color: #f5f2ec;
+      padding: 46px 44px;
+      position:relative;
     }
 
-    h1{
-      margin: 12px 0 8px 0;
-      font-size: 42px;
-      line-height: 1.08;
-      letter-spacing: -0.3px;
-    }
-    @media (max-width: 480px){ h1{ font-size: 34px; } }
-
-    .sub{
-      margin: 0 0 14px 0;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 60ch;
-    }
-
-    .ctaRow{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 12px;
-    }
-    .btn.ghost{
-      background:#fff;
-      border-color: var(--line);
-    }
-    .btn.ghost:hover{
-      background:#fafafa;
-    }
-
-    .bullets{
-      margin-top: 14px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:8px 12px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    @media (max-width: 520px){ .bullets{ grid-template-columns: 1fr; } }
-
-    .sideCard{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #ffffff;
-      box-shadow: var(--shadow2);
-      padding: 16px;
-    }
-    .sideCard h3{
-      margin:0 0 6px 0;
-      font-size: 16px;
-    }
-    .sideCard p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .divider{
-      height: 1px;
-      background: var(--line);
-      margin: 12px 0;
-    }
-    .contactLine{
-      font-weight:700;
-      color: var(--text);
-    }
-
-    .quickActions{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 12px;
-    }
-    .miniBtn{
+    .heroLeft .miniTag{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
-      padding: 9px 12px;
+      gap:8px;
+      padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #fff;
-      font-weight:700;
-      font-size: 13px;
-      color: var(--text);
-    }
-    .miniBtn:hover{ background:#fafafa; }
-    .miniBtn.primary{
-      border-color: rgba(176,138,46,0.28);
-      background: linear-gradient(135deg, var(--gold2), var(--gold));
-      color:#111827;
+      border: 1px solid rgba(217,180,91,0.30);
+      background: rgba(217,180,91,0.10);
+      color: rgba(255,255,255,0.90);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
     }
 
-    /* ===== Sections / Cards ===== */
-    section{ padding: 22px 0; }
-    .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin: 10px 0 12px 0;
+    .heroTitle{
+      margin: 18px 0 10px 0;
+      font-family: "Playfair Display", serif;
+      font-size: 62px;
+      line-height: 0.98;
+      letter-spacing: -0.8px;
+      color: var(--gold2);
     }
-    h2{
-      margin:0;
-      font-size: 24px;
-      letter-spacing: -0.2px;
+    .heroTitle em{
+      display:block;
+      font-style: italic;
+      font-weight: 500;
+      color: #f5f2ec;
+      margin-top: 10px;
+      font-size: 46px;
     }
-    .lead{
-      margin:0;
+
+    .heroText{
+      max-width: 48ch;
+      color: rgba(245,242,236,0.86);
+      margin: 14px 0 22px 0;
+      font-size: 15px;
+    }
+
+    .heroActions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+
+    .heroMeta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(245,242,236,0.78);
+      font-size: 13px;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+    .faces{
+      display:flex;
+      align-items:center;
+    }
+    .face{
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.55);
+      margin-left: -8px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+    }
+    .face:first-child{ margin-left: 0; }
+
+    .heroRight{
+      position:relative;
+      background: #101217;
+    }
+    .heroRight img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter: contrast(1.04) saturate(1.03);
+      opacity: 0.95;
+    }
+
+    .stamp{
+      position:absolute;
+      right: 18px;
+      bottom: 18px;
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, var(--gold2), var(--gold));
+      display:grid;
+      place-items:center;
+      box-shadow: 0 22px 36px rgba(0,0,0,0.28);
+      border: 6px solid rgba(255,255,255,0.20);
+    }
+    .stampInner{
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      display:grid;
+      place-items:center;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(20,20,20,0.92);
+      font-size: 11px;
+      text-align:center;
+      padding: 10px;
+    }
+
+    @media (max-width: 960px){
+      .heroGrid{ grid-template-columns: 1fr; min-height: unset; }
+      .heroRight{ height: 340px; }
+      .heroLeft{ padding: 36px 22px; }
+      .heroTitle{ font-size: 46px; }
+      .heroTitle em{ font-size: 34px; }
+    }
+
+    /* ===== Section headings ===== */
+    .section{
+      background: var(--paper);
+      border-top: 1px solid rgba(20,20,20,0.06);
+      border-bottom: 1px solid rgba(20,20,20,0.06);
+      padding: 48px 0;
+    }
+    .section.white{
+      background: transparent;
+      border: none;
+      padding: 48px 0;
+    }
+
+    .centerHead{
+      text-align:center;
+      margin-bottom: 22px;
+    }
+    .kicker{
+      font-weight: 900;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: rgba(176,138,46,0.75);
+      font-size: 12px;
+    }
+    .h2{
+      margin: 10px 0 8px 0;
+      font-family: "Playfair Display", serif;
+      font-size: 46px;
+      letter-spacing: -0.6px;
+    }
+    .subline{
       color: var(--muted);
+      max-width: 70ch;
+      margin: 0 auto;
       font-size: 14px;
     }
+    .goldLine{
+      width: 86px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 18px auto 0 auto;
+      border-radius: 999px;
+    }
 
-    .grid{
+    @media (max-width: 520px){
+      .h2{ font-size: 36px; }
+    }
+
+    /* ===== Menu cards (med billeder) ===== */
+    .grid3{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:14px;
+      gap: 18px;
+      margin-top: 26px;
     }
-    @media (max-width: 980px){ .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 600px){ .grid{ grid-template-columns: 1fr; } }
+    @media (max-width: 980px){
+      .grid3{ grid-template-columns: 1fr; }
+    }
 
-    .card{
-      border: 1px solid var(--line);
+    .menuCard{
+      background: #fff;
       border-radius: var(--radius);
-      background: var(--card);
       box-shadow: var(--shadow2);
-      padding: 16px;
+      border: 1px solid rgba(20,20,20,0.06);
+      overflow:hidden;
     }
-    .card h3{
-      margin:0 0 8px 0;
-      font-size: 16px;
+    .menuImg{
+      height: 210px;
+      position: relative;
+      background:#0f1117;
     }
-    .mini{
-      margin:0;
+    .menuImg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .badge{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(176,138,46,0.22);
+      font-weight: 900;
+      font-size: 12px;
+      color: rgba(20,20,20,0.80);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .badge .cup{
+      width: 14px;
+      height: 14px;
+      display:inline-block;
+    }
+
+    .menuBody{
+      padding: 18px 18px 16px 18px;
+      background:
+        radial-gradient(600px 220px at 20% 120%, rgba(217,180,91,0.14), transparent 60%),
+        #fff;
+    }
+    .menuTitle{
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      margin: 0 0 6px 0;
+    }
+    .menuDesc{
       color: var(--muted);
       font-size: 13px;
+      margin: 0 0 12px 0;
+      font-style: italic;
     }
-    .list{ margin-top: 10px; }
-    .list div{
-      padding: 8px 0;
-      border-bottom: 1px dashed #ececec;
+    .bulList{
+      margin: 0;
+      padding-left: 16px;
+      color: rgba(20,20,20,0.78);
       font-size: 14px;
     }
-    .list div:last-child{ border-bottom:none; }
+    .bulList li{ margin: 8px 0; }
 
-    /* ===== Prices ===== */
-    .price{
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: -0.4px;
-      margin: 10px 0 8px 0;
-    }
-    .tag{
-      display:inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 12px;
-      color: #3b2f13;
-      border: 1px solid rgba(176,138,46,0.25);
-      background: rgba(217,180,91,0.16);
-    }
-
-    .btnFull{ width:100%; }
-
-    /* ===== Steps ===== */
-    .steps{
+    /* ===== Packages ===== */
+    .packGrid{
       display:grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap:12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+      align-items: stretch;
     }
-    @media (max-width: 980px){ .steps{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 520px){ .steps{ grid-template-columns: 1fr; } }
+    @media (max-width: 980px){
+      .packGrid{ grid-template-columns: 1fr; }
+    }
 
-    .step{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
+    .pack{
+      background:#fff;
+      border-radius: 22px;
       box-shadow: var(--shadow2);
-      padding: 14px;
+      border: 1px solid rgba(20,20,20,0.06);
+      padding: 22px;
+      position: relative;
     }
-    .num{
-      display:inline-flex;
-      width:26px; height:26px;
-      align-items:center; justify-content:center;
-      border-radius: 999px;
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      margin-right: 8px;
-      font-weight: 800;
+    .pack.featured{
+      border: 2px solid rgba(176,138,46,0.55);
+      box-shadow: 0 20px 44px rgba(176,138,46,0.12), var(--shadow2);
+      transform: translateY(-6px);
+    }
+    .packTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .packTop h3{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      font-size: 22px;
+    }
+    .packSmall{
+      margin-top: 4px;
       color: var(--muted);
       font-size: 13px;
+      font-weight: 600;
+    }
+    .packPrice{
+      font-weight: 900;
+      font-size: 44px;
+      letter-spacing: -0.8px;
+      margin: 8px 0 10px 0;
+    }
+    .packPrice span{
+      font-size: 16px;
+      font-weight: 800;
+      color: rgba(20,20,20,0.65);
+      margin-left: 6px;
+    }
+
+    .checks{
+      margin: 14px 0 0 0;
+      padding: 0;
+      list-style: none;
+      color: rgba(20,20,20,0.76);
+      font-weight: 650;
+      font-size: 14px;
+    }
+    .checks li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 9px 0;
+    }
+    .checkDot{
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(176,138,46,0.16);
+      border: 1px solid rgba(176,138,46,0.22);
+      display:grid;
+      place-items:center;
+      margin-top: 2px;
+      flex:0 0 auto;
+    }
+    .checkDot svg{ width: 12px; height: 12px; }
+
+    .packAction{
+      margin-top: 18px;
+    }
+    .packAction .btn{
+      width: 100%;
+      justify-content:center;
+      padding: 13px 16px;
+      border-radius: 14px;
+    }
+
+    .ribbon{
+      position:absolute;
+      top:-12px;
+      left:50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold2), var(--gold));
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border: 1px solid rgba(176,138,46,0.30);
+      box-shadow: 0 14px 20px rgba(176,138,46,0.18);
+    }
+
+    /* ===== Highlights (Det kunder typisk fremhæver) ===== */
+    .hiGrid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+    @media (max-width: 980px){
+      .hiGrid{ grid-template-columns: 1fr; }
+    }
+
+    .hi{
+      background:#fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      border: 1px solid rgba(20,20,20,0.06);
+      padding: 22px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .hiIcon{
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: rgba(176,138,46,0.10);
+      border: 1px solid rgba(176,138,46,0.20);
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+    }
+    .hiIcon svg{ width: 18px; height: 18px; }
+    .hi h3{
+      margin:0 0 6px 0;
+      font-family:"Playfair Display", serif;
+      font-size: 18px;
+    }
+    .hi p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ===== FAQ ===== */
+    .faqGrid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+    @media (max-width: 980px){
+      .faqGrid{ grid-template-columns: 1fr; }
+    }
+    .faq{
+      background:#fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      border: 1px solid rgba(20,20,20,0.06);
+      padding: 20px;
+    }
+    .faq h3{
+      margin:0 0 8px 0;
+      font-family:"Playfair Display", serif;
+      font-size: 18px;
+    }
+    .faq p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     /* ===== Booking ===== */
-    .bookingGrid{
+    .bookGrid{
       display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap:14px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+      margin-top: 26px;
       align-items:start;
     }
-    @media (max-width: 900px){ .bookingGrid{ grid-template-columns:1fr; } }
+    @media (max-width: 980px){
+      .bookGrid{ grid-template-columns: 1fr; }
+    }
+
+    .panel{
+      background:#fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      border: 1px solid rgba(20,20,20,0.06);
+      padding: 22px;
+    }
 
     label{
       display:block;
+      font-weight: 800;
+      color: rgba(20,20,20,0.70);
       margin-top: 12px;
       font-size: 13px;
-      color: var(--muted);
-      font-weight: 700;
     }
     input, select, textarea{
       width:100%;
-      padding: 12px;
       margin-top: 6px;
+      padding: 12px 12px;
       border-radius: 14px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(20,20,20,0.12);
       background: #fff;
-      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
       outline:none;
     }
     input:focus, select:focus, textarea:focus{
       border-color: rgba(176,138,46,0.45);
       box-shadow: 0 0 0 4px rgba(217,180,91,0.20);
     }
-    button{
-      width:100%;
-      margin-top: 16px;
-      padding: 13px 14px;
-      border:none;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold2), var(--gold));
-      color: #111827;
-      font-weight: 900;
-      font-size: 15px;
-      cursor:pointer;
-      box-shadow: 0 12px 18px rgba(176,138,46,0.18);
-    }
-    button:hover{
-      background: linear-gradient(135deg, var(--gold2), var(--goldHover));
-    }
 
-    /* Footer */
-    footer{
-      margin-top: 10px;
-      padding: 22px 0;
-      border-top: 1px solid var(--line);
+    .smallNote{
+      margin-top: 12px;
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .contactBox h3{
+      margin:0 0 6px 0;
+      font-family:"Playfair Display", serif;
+      font-size: 18px;
+    }
+    .contactLine{
+      margin: 10px 0 0 0;
+      font-weight: 800;
+    }
+    .goldNotice{
+      margin-top: 14px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(217,180,91,0.14);
+      border: 1px solid rgba(176,138,46,0.20);
+      color: rgba(20,20,20,0.85);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    footer{
+      padding: 26px 0;
+      color: rgba(20,20,20,0.60);
       text-align:center;
+      font-size: 13px;
+      border-top: 1px solid rgba(20,20,20,0.08);
+      margin-top: 34px;
+      background: rgba(255,255,255,0.40);
     }
     .toTop{
       color: var(--gold);
+      font-weight: 900;
       text-decoration: underline;
-      font-weight: 800;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Slim topbar (vises først når man scroller) -->
-  <div class="topbar" id="topbar">
+  <!-- NAV -->
+  <div class="top">
     <div class="wrap">
-      <div class="row">
-        <div class="brand">
-          <!-- Logo (guld, tidsløst) -->
-          <svg class="logo" viewBox="0 0 64 64" aria-label="Jysk Mobil Bartender logo" role="img">
-            <defs>
-              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#d9b45b"/>
-                <stop offset="1" stop-color="#b08a2e"/>
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="30" fill="white" stroke="url(#goldGrad)" stroke-width="2"/>
-            <path d="M18 18h28c0 9-7 16-14 16S18 27 18 18Z" fill="none" stroke="url(#goldGrad)" stroke-width="2.6" stroke-linejoin="round"/>
-            <path d="M32 34v12" stroke="#111827" stroke-width="2.6" stroke-linecap="round"/>
-            <path d="M24 50h16" stroke="#111827" stroke-width="2.6" stroke-linecap="round"/>
-          </svg>
-
+      <div class="topbar">
+        <a class="brand" href="#top" aria-label="Til toppen">
+          <div class="brandMark" aria-hidden="true">
+            <!-- Cup icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M7 4h10v3c0 3-2.5 5.5-5 5.5S7 10 7 7V4Z" stroke="#1b1b1b" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M12 12.5V18" stroke="#1b1b1b" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 20h8" stroke="#1b1b1b" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
           <div class="brandText">
             <strong>Jysk Mobil Bartender</strong>
             <span>Professionel barservice – uden besvær</span>
           </div>
-        </div>
+        </a>
 
-        <div class="navlinks">
-          <a class="link" href="#menuer">Menuer</a>
-          <a class="link" href="#priser">Priser</a>
-          <a class="link" href="#saadan">Sådan</a>
-          <a class="link" href="#faq">FAQ</a>
-          <a class="btn primary" href="#booking">Book</a>
-        </div>
+        <nav class="navlinks" aria-label="Navigation">
+          <a href="#koncept">Koncept</a>
+          <a href="#menuer">Menu</a>
+          <a href="#priser">Priser</a>
+          <a href="#booking">Booking</a>
+        </nav>
+
+        <a class="btn gold" href="#booking">Book Nu</a>
       </div>
     </div>
   </div>
@@ -459,44 +732,40 @@
   <header id="top">
     <div class="wrap">
       <div class="hero">
-        <div class="heroIn">
-          <div>
-            <span class="pill">Cocktailservice • Hele Jylland • Fast pakkepris</span>
-            <h1>Mobil bartender til din fest</h1>
-            <p class="sub">Professionel barservice – uden besvær. Du køber alkoholen, vi står for cocktails, tempo og service.</p>
+        <div class="heroGrid">
+          <div class="heroLeft">
+            <span class="miniTag">★ Premium service</span>
 
-            <div class="ctaRow">
-              <a class="btn primary" href="#booking">Book nu</a>
-              <a class="btn ghost" href="#priser">Se pakker</a>
+            <div class="heroTitle">
+              Mobil<br/>bartender
+              <em>til din fest</em>
             </div>
 
-            <div class="bullets">
-              <div>✔ Samme pris uanset menu</div>
-              <div>✔ 3 / 4 / 5 timer</div>
-              <div>✔ Dækker hele Jylland</div>
-              <div>✔ Over 3 timer = min. 2 bartendere</div>
+            <p class="heroText">
+              Gør din fest uforglemmelig med professionelle cocktails serveret i hele Jylland.
+              En smagsoplevelse ud over det sædvanlige.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn gold" href="#menuer">Se menukort</a>
+              <a class="btn outline" href="#priser">Se priser</a>
+
+              <div class="heroMeta" aria-label="Social proof">
+                <div class="faces" aria-hidden="true">
+                  <div class="face"></div><div class="face"></div><div class="face"></div>
+                </div>
+                500+ glade gæster
+              </div>
             </div>
           </div>
 
-          <div class="sideCard">
-            <h3>Tryghed</h3>
-            <p><strong>Fast pakkepris</strong> – ingen ekstra gebyrer.</p>
-            <p><strong>Hurtigt svar</strong> – vi vender hurtigt tilbage.</p>
-            <div class="divider"></div>
-            <p><strong>Vigtigt:</strong> Ved <strong>over 3 timer</strong> kommer der altid mindst <strong>2 bartendere</strong> med ud.</p>
-
-            <div class="divider"></div>
-            <p class="mini"><strong>Kontakt</strong></p>
-            <p class="mini">
-              <span class="contactLine">booking.mobilbartender@gmail.com</span><br>
-              <span class="contactLine">+45 71 57 60 50</span><br>
-              <span class="contactLine">Hele Jylland</span>
-            </p>
-
-            <div class="quickActions">
-              <a class="miniBtn primary" href="sms:+4571576050&body=Hej%20Jysk%20Mobil%20Bartender%20-%20jeg%20vil%20gerne%20booke.%20Dato:%20%20By:%20%20G%C3%A6ster:%20%20Timer:%20%203/4/5%20%20Menu:%20%20">Skriv SMS</a>
-              <a class="miniBtn" href="tel:+4571576050">Ring</a>
-              <a class="miniBtn" href="#booking">Booking</a>
+          <div class="heroRight" aria-label="Cocktail billede">
+            <!-- HERO BILLEDE (du kan udskifte url senere) -->
+            <img
+              src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1400&q=80"
+              alt="Cocktail bliver hældt op i glas" />
+            <div class="stamp" aria-hidden="true">
+              <div class="stampInner">Serverer<br/>i hele<br/>Jylland</div>
             </div>
           </div>
         </div>
@@ -504,48 +773,152 @@
     </div>
   </header>
 
-  <!-- MENUER -->
-  <section id="menuer">
+  <!-- KONCEPT -->
+  <section id="koncept" class="section white">
     <div class="wrap">
-      <div class="sectionTitle">
-        <h2>Cocktailmenuer</h2>
-        <p class="lead">Vælg den menu I kan lide – prisen er den samme.</p>
+      <div class="centerHead">
+        <div class="kicker">KONCEPT</div>
+        <div class="h2">Enkel booking. Professionel service.</div>
+        <div class="subline">
+          Du betaler kun for pakken. Du køber alkohol/ingredienser – vi sender indkøbsliste efter booking.
+          <strong>Ved over 3 timer kommer der altid mindst 2 bartendere med ud.</strong>
+        </div>
+        <div class="goldLine"></div>
       </div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Klassisk & Sikker</h3>
-          <p class="mini">Klassikere der passer til de fleste fester.</p>
-          <div class="list">
-            <div>Gin & Tonic</div>
-            <div>Vodka Lemon</div>
-            <div>Aperol Spritz</div>
-            <div>Mojito</div>
-            <div>Dark ’n Stormy</div>
+      <div class="hiGrid">
+        <div class="hi">
+          <div class="hiIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Fast pakkepris</h3>
+            <p>Ingen skjulte gebyrer. Du vælger 3, 4 eller 5 timer – og så kører vi.</p>
           </div>
         </div>
 
-        <div class="card">
-          <h3>Frisk & Sommer</h3>
-          <p class="mini">Lette, friske favoritter – perfekte til fest.</p>
-          <div class="list">
-            <div>Strawberry Mojito</div>
-            <div>Moscow Mule</div>
-            <div>Aperol Spritz</div>
-            <div>Gin Hass</div>
-            <div>Vodka Red Bull</div>
+        <div class="hi">
+          <div class="hiIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 8v5l3 2" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 22A10 10 0 1 0 12 2a10 10 0 0 0 0 20Z" stroke="var(--gold)" stroke-width="2.2"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Hurtigt flow</h3>
+            <p>Effektiv barservice, så gæsterne ikke står i kø hele aftenen.</p>
           </div>
         </div>
 
-        <div class="card">
-          <h3>Fest & Luksus</h3>
-          <p class="mini">Mere “wow” – når det gerne må føles ekstra.</p>
-          <div class="list">
-            <div>Pornstar Martini</div>
-            <div>Espresso Martini</div>
-            <div>French 75</div>
-            <div>Paloma</div>
-            <div>Old Fashioned</div>
+        <div class="hi">
+          <div class="hiIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 6.5-7 11-7 11Z" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Smag & stemning</h3>
+            <p>Menuen rammer bredt – og kan tilpasses efter festtype.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENUER -->
+  <section id="menuer" class="section">
+    <div class="wrap">
+      <div class="centerHead">
+        <div class="kicker">KURATEREDE OPLEVELSER</div>
+        <div class="h2">Vores Cocktailmenuer</div>
+        <div class="subline">Vælg den menu der passer bedst til dit selskab – prisen er den samme uanset hvilken pakke du vælger.</div>
+        <div class="goldLine"></div>
+      </div>
+
+      <div class="grid3">
+        <!-- Klassisk -->
+        <div class="menuCard">
+          <div class="menuImg">
+            <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=1400&q=80" alt="Gin & tonic" />
+            <div class="badge">
+              <span class="cup" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 4h10v3c0 3-2.5 5.5-5 5.5S7 10 7 7V4Z" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M12 12.5V18" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M8 20h8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              5 cocktails
+            </div>
+          </div>
+          <div class="menuBody">
+            <div class="menuTitle">Klassisk & Sikker</div>
+            <div class="menuDesc">Klassikere der passer til de fleste fester.</div>
+            <ul class="bulList">
+              <li>Gin & Tonic</li>
+              <li>Vodka Lemon</li>
+              <li>Aperol Spritz</li>
+              <li>Mojito</li>
+              <li>Dark ’n Stormy</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sommer -->
+        <div class="menuCard">
+          <div class="menuImg">
+            <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=1400&q=80" alt="Sommer cocktail" />
+            <div class="badge">
+              <span class="cup" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 4h10v3c0 3-2.5 5.5-5 5.5S7 10 7 7V4Z" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M12 12.5V18" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M8 20h8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              5 cocktails
+            </div>
+          </div>
+          <div class="menuBody">
+            <div class="menuTitle">Frisk & Sommer</div>
+            <div class="menuDesc">Lette, friske favoritter – perfekte til fest.</div>
+            <ul class="bulList">
+              <li>Strawberry Mojito</li>
+              <li>Moscow Mule</li>
+              <li>Aperol Spritz</li>
+              <li>Gin Hass</li>
+              <li>Vodka Red Bull</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Luksus -->
+        <div class="menuCard">
+          <div class="menuImg">
+            <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?auto=format&fit=crop&w=1400&q=80" alt="Espresso martini" />
+            <div class="badge">
+              <span class="cup" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 4h10v3c0 3-2.5 5.5-5 5.5S7 10 7 7V4Z" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M12 12.5V18" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M8 20h8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              5 cocktails
+            </div>
+          </div>
+          <div class="menuBody">
+            <div class="menuTitle">Fest & Luksus</div>
+            <div class="menuDesc">Mere “wow” – når det gerne må føles ekstra.</div>
+            <ul class="bulList">
+              <li>Pornstar Martini</li>
+              <li>Espresso Martini</li>
+              <li>French 75</li>
+              <li>Paloma</li>
+              <li>Old Fashioned</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -553,153 +926,240 @@
   </section>
 
   <!-- PRISER -->
-  <section id="priser">
+  <section id="priser" class="section white">
     <div class="wrap">
-      <div class="sectionTitle">
-        <h2>Pakker & priser</h2>
-        <p class="lead">Du betaler kun for pakken – ingen ekstra priser.</p>
+      <div class="centerHead">
+        <div class="kicker">INVESTERING I DIN FEST</div>
+        <div class="h2">Vælg din pakke</div>
+        <div class="subline">Gennemsigtige priser uden skjulte gebyrer. Alle pakker inkluderer opsætning og nedtagning.</div>
+        <div class="goldLine"></div>
       </div>
 
-      <div class="grid">
-        <div class="card">
-          <span class="tag">Mest valgt</span>
-          <h3 style="margin-top:10px;">3 timer</h3>
-          <div class="price">2.500 kr</div>
-          <p class="mini">Mobil bartender i 3 timer • 1 bartender</p>
-          <a class="btn primary btnFull" href="#booking" onclick="setTimer('3 timer')">Book 3 timer</a>
+      <div class="packGrid">
+        <div class="pack">
+          <div class="packTop">
+            <div>
+              <h3>4 Timer</h3>
+              <div class="packSmall">God til fester</div>
+            </div>
+          </div>
+          <div class="packPrice">3.500<span>kr</span></div>
+
+          <ul class="checks">
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Mobil barservice i 4 timer
+            </li>
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <strong>Min. 2 bartendere</strong>
+            </li>
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Alt udstyr inkluderet
+            </li>
+          </ul>
+
+          <div class="packAction">
+            <a class="btn outline" href="#booking" onclick="setTimer('4 timer')">Vælg pakke</a>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>4 timer</h3>
-          <div class="price">3.500 kr</div>
-          <p class="mini">Mobil bartender i 4 timer • <strong>min. 2 bartendere</strong></p>
-          <a class="btn primary btnFull" href="#booking" onclick="setTimer('4 timer')">Book 4 timer</a>
+        <div class="pack featured">
+          <div class="ribbon">Mest valgte</div>
+
+          <div class="packTop" style="margin-top:10px;">
+            <div>
+              <h3>3 Timer</h3>
+              <div class="packSmall">Perfekt til receptioner</div>
+            </div>
+          </div>
+          <div class="packPrice" style="color: var(--gold);">2.500<span>kr</span></div>
+
+          <ul class="checks">
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Mobil barservice i 3 timer
+            </li>
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Professionel bartender
+            </li>
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Alt udstyr inkluderet
+            </li>
+          </ul>
+
+          <div class="packAction">
+            <a class="btn gold" href="#booking" onclick="setTimer('3 timer')">Book Nu</a>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>5 timer</h3>
-          <div class="price">4.500 kr</div>
-          <p class="mini">Mobil bartender i 5 timer • <strong>min. 2 bartendere</strong></p>
-          <a class="btn primary btnFull" href="#booking" onclick="setTimer('5 timer')">Book 5 timer</a>
+        <div class="pack">
+          <div class="packTop">
+            <div>
+              <h3>5 Timer</h3>
+              <div class="packSmall">Til den store fest</div>
+            </div>
+          </div>
+          <div class="packPrice">4.500<span>kr</span></div>
+
+          <ul class="checks">
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Mobil barservice i 5 timer
+            </li>
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <strong>Min. 2 bartendere</strong>
+            </li>
+            <li>
+              <span class="checkDot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Alt udstyr inkluderet
+            </li>
+          </ul>
+
+          <div class="packAction">
+            <a class="btn outline" href="#booking" onclick="setTimer('5 timer')">Vælg pakke</a>
+          </div>
         </div>
       </div>
 
-      <div class="card" style="margin-top:14px;">
-        <h3>Inkluderet</h3>
-        <p class="mini">✔ Valgfri cocktailmenu • ✔ Barudstyr • ✔ Opsætning & oprydning • ✔ Hele Jylland</p>
-        <p class="mini" style="margin-top:10px;"><strong>Ved over 3 timer</strong> kommer der altid mindst <strong>2 bartendere</strong> med ud.</p>
-        <p class="mini" style="margin-top:10px;">Alkohol/ingredienser købes af kunden – vi sender indkøbsliste efter booking.</p>
-      </div>
+      <p class="subline" style="text-align:center; margin-top:18px;">
+        <strong>Ved over 3 timer kommer der altid mindst 2 bartendere med ud.</strong>
+      </p>
     </div>
   </section>
 
-  <!-- SÅDAN -->
-  <section id="saadan">
+  <!-- DET KUNDER TYPISK FREMHÆVER -->
+  <section id="fremhaever" class="section">
     <div class="wrap">
-      <div class="sectionTitle">
-        <h2>Sådan fungerer det</h2>
-        <p class="lead">Simpelt, hurtigt og uden bøvl.</p>
+      <div class="centerHead">
+        <div class="kicker">KVALITET OG SERVICE</div>
+        <div class="h2">Det kunder typisk fremhæver</div>
+        <div class="goldLine"></div>
       </div>
 
-      <div class="steps">
-        <div class="step">
-          <strong><span class="num">1</span>Book</strong>
-          <div class="mini">Send dato, by og antal gæster.</div>
+      <div class="hiGrid">
+        <div class="hi">
+          <div class="hiIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 20h16" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M7 17V8h10v9" stroke="var(--gold)" stroke-width="2.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Professionelt setup</h3>
+            <p>Vi sikrer en pæn og ryddelig barstation. Klar kommunikation fra start til slut.</p>
+          </div>
         </div>
-        <div class="step">
-          <strong><span class="num">2</span>Vælg menu</strong>
-          <div class="mini">Klassisk, Sommer eller Luksus.</div>
-        </div>
-        <div class="step">
-          <strong><span class="num">3</span>Indkøbsliste</strong>
-          <div class="mini">Du får en enkel liste over hvad du skal købe.</div>
-        </div>
-        <div class="step">
-          <strong><span class="num">4</span>Vi serverer</strong>
-          <div class="mini">Vi kommer og mixer cocktails hele aftenen.</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- KUNDER -->
-  <section id="kunder">
-    <div class="wrap">
-      <div class="sectionTitle">
-        <h2>Det kunder typisk fremhæver</h2>
-        <p class="lead">Fokus på kvalitet og service.</p>
-      </div>
+        <div class="hi">
+          <div class="hiIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 8v5l3 2" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 22A10 10 0 1 0 12 2a10 10 0 0 0 0 20Z" stroke="var(--gold)" stroke-width="2.2"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Hurtig servering</h3>
+            <p>Effektivt workflow bag baren betyder færre køer og glade gæster.</p>
+          </div>
+        </div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Professionelt setup</h3>
-          <p class="mini">God kommunikation før arrangementet og roligt, ryddeligt setup på dagen.</p>
-        </div>
-        <div class="card">
-          <h3>Hurtig servering</h3>
-          <p class="mini">Flow i baren, så gæsterne ikke står i kø hele aftenen.</p>
-        </div>
-        <div class="card">
-          <h3>Gode cocktails</h3>
-          <p class="mini">Menuen rammer bredt – og kan tilpasses efter festtype.</p>
+        <div class="hi">
+          <div class="hiIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 4h10v3c0 3-2.5 5.5-5 5.5S7 10 7 7V4Z" stroke="var(--gold)" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M12 12.5V18" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M8 20h8" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Gode cocktails</h3>
+            <p>Et bredt menukort der kan tilpasses. Fokus på gode råvarer og smag.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq">
+  <section id="faq" class="section white">
     <div class="wrap">
-      <div class="sectionTitle">
-        <h2>FAQ</h2>
-        <p class="lead">De mest almindelige spørgsmål.</p>
+      <div class="centerHead">
+        <div class="kicker">FAQ</div>
+        <div class="h2">Spørgsmål & svar</div>
+        <div class="subline">De mest almindelige spørgsmål – kort og enkelt.</div>
+        <div class="goldLine"></div>
       </div>
 
-      <div class="grid">
-        <div class="card">
+      <div class="faqGrid">
+        <div class="faq">
           <h3>Skal jeg selv købe alkohol?</h3>
-          <p class="mini">Ja. Vi sender en enkel indkøbsliste baseret på timer, gæster og menu.</p>
+          <p>Ja. Vi sender en enkel indkøbsliste baseret på timer, gæster og menu.</p>
         </div>
-        <div class="card">
+        <div class="faq">
           <h3>Er der ekstra gebyrer?</h3>
-          <p class="mini">Nej. Du betaler kun for den valgte pakke.</p>
+          <p>Nej. Du betaler kun for den valgte pakke – ingen ekstra priser.</p>
         </div>
-        <div class="card">
+        <div class="faq">
           <h3>Hvor kører I?</h3>
-          <p class="mini">Vi dækker hele Jylland.</p>
+          <p>Vi dækker hele Jylland.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- BOOKING -->
-  <section id="booking">
+  <section id="booking" class="section">
     <div class="wrap">
-      <div class="sectionTitle">
-        <h2>Booking</h2>
-        <p class="lead">Udfyld formularen – vi svarer hurtigt.</p>
+      <div class="centerHead">
+        <div class="kicker">BOOKING</div>
+        <div class="h2">Send en bookingforespørgsel</div>
+        <div class="subline">Udfyld formularen – vi vender hurtigt tilbage.</div>
+        <div class="goldLine"></div>
       </div>
 
-      <div class="bookingGrid">
-        <div class="card">
-          <form action="mailto:booking.mobilbartender@gmail.com" method="post" enctype="text/plain" id="bookingForm">
+      <div class="bookGrid">
+        <div class="panel">
+          <form action="mailto:booking.mobilbartender@gmail.com" method="post" enctype="text/plain">
             <label>Navn *</label>
-            <input type="text" name="Navn" required>
+            <input name="Navn" required>
 
             <label>Email *</label>
-            <input type="email" name="Email" required>
+            <input name="Email" type="email" required>
 
             <label>Telefon</label>
-            <input type="text" name="Telefon">
+            <input name="Telefon">
 
             <label>By / adresse *</label>
-            <input type="text" name="Adresse" required>
+            <input name="Adresse" required>
 
             <label>Dato for arrangement *</label>
-            <input type="date" name="Dato" required>
+            <input name="Dato" type="date" required>
 
             <label>Antal gæster (ca.) *</label>
-            <input type="number" name="Gæster" required>
+            <input name="Gæster" type="number" required>
 
             <label>Varighed *</label>
             <select name="Timer" id="timerSelect" required>
@@ -718,28 +1178,34 @@
             <label>Ekstra besked</label>
             <textarea name="Besked" rows="4" placeholder="Skriv evt. starttid, type fest og særlige ønsker..."></textarea>
 
-            <button type="submit">Send bookingforespørgsel</button>
+            <button type="submit" class="btn gold" style="width:100%; border-radius:14px; padding:14px 18px;">
+              Send bookingforespørgsel
+            </button>
+
+            <div class="smallNote">
+              Tip: Du kan også skrive direkte på SMS for hurtig booking.
+            </div>
           </form>
         </div>
 
-        <div class="card">
+        <div class="panel contactBox">
           <h3>Kontakt</h3>
-          <p class="mini"><strong>Vi dækker:</strong> Hele Jylland</p>
-          <div class="divider"></div>
+          <div class="subline" style="text-align:left; margin:0;">
+            Vi dækker <strong>hele Jylland</strong>.
+          </div>
 
-          <p class="mini"><strong>Email</strong></p>
-          <p style="margin:6px 0 0 0; font-weight:800;">booking.mobilbartender@gmail.com</p>
+          <div class="contactLine">📩 booking.mobilbartender@gmail.com</div>
+          <div class="contactLine">📞 +45 71 57 60 50</div>
 
-          <p class="mini" style="margin-top:12px;"><strong>Telefon</strong></p>
-          <p style="margin:6px 0 0 0; font-weight:800;">+45 71 57 60 50</p>
+          <div class="goldNotice">
+            <strong>Vigtigt:</strong> Ved <strong>over 3 timer</strong> kommer der altid mindst <strong>2 bartendere</strong> med ud.
+          </div>
 
-          <div class="divider"></div>
-          <p class="mini"><strong>Vigtigt:</strong> Ved <strong>over 3 timer</strong> kommer der altid mindst <strong>2 bartendere</strong> med ud.</p>
-
-          <div class="quickActions">
-            <a class="miniBtn primary" href="sms:+4571576050&body=Hej%20Jysk%20Mobil%20Bartender%20-%20jeg%20vil%20gerne%20booke.%20Dato:%20%20By:%20%20G%C3%A6ster:%20%20Timer:%20%203/4/5%20%20Menu:%20%20">Skriv SMS</a>
-            <a class="miniBtn" href="tel:+4571576050">Ring</a>
-            <a class="miniBtn" href="mailto:booking.mobilbartender@gmail.com">Email</a>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn gold" href="sms:+4571576050&body=Hej%20Jysk%20Mobil%20Bartender%20-%20jeg%20vil%20gerne%20booke.%20Dato:%20%20By:%20%20G%C3%A6ster:%20%20Timer:%20%203/4/5%20%20Menu:%20%20">
+              Skriv SMS
+            </a>
+            <a class="btn outline" href="tel:+4571576050">Ring</a>
           </div>
         </div>
       </div>
@@ -751,18 +1217,7 @@
   </footer>
 
   <script>
-    // Viser slim topbar når man scroller lidt ned (så den ikke står i vejen i toppen)
-    (function(){
-      var bar = document.getElementById('topbar');
-      function onScroll(){
-        if (window.scrollY > 140) bar.classList.add('show');
-        else bar.classList.remove('show');
-      }
-      window.addEventListener('scroll', onScroll, { passive:true });
-      onScroll();
-    })();
-
-    // Sætter varighed i formularen når man klikker "Book 3/4/5 timer"
+    // Book knapperne vælger timer + scroller til booking
     function setTimer(value){
       var select = document.getElementById('timerSelect');
       if(!select) return;
@@ -772,7 +1227,6 @@
           break;
         }
       }
-      select.focus();
     }
   </script>
 
