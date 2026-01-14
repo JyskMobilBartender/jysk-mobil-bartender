@@ -236,8 +236,6 @@
       margin-top: 14px;
     }
 
-    /* (FJERNET) .heroMeta + faces CSS er ok at blive – det skader ikke – men selve teksten/elementet er fjernet */
-
     .heroRight{
       position:relative;
       background: #101217;
@@ -682,7 +680,6 @@
       <div class="topbar">
         <a class="brand" href="#top" aria-label="Til toppen">
           <div class="brandMark" aria-hidden="true">
-            <!-- Cup icon -->
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M7 4h10v3c0 3-2.5 5.5-5 5.5S7 10 7 7V4Z" stroke="#1b1b1b" stroke-width="2" stroke-linejoin="round"/>
               <path d="M12 12.5V18" stroke="#1b1b1b" stroke-width="2" stroke-linecap="round"/>
@@ -728,7 +725,6 @@
             <div class="heroActions">
               <a class="btn gold" href="#menuer">Se menukort</a>
               <a class="btn outline" href="#priser">Se priser</a>
-              <!-- 500+ glade gæster (FJERNET HER) -->
             </div>
           </div>
 
@@ -866,10 +862,11 @@
           </div>
         </div>
 
-        <!-- Luksus (ÆNDRET: Espresso Martini billede) -->
+        <!-- Luksus (Old Fashioned) -->
         <div class="menuCard">
           <div class="menuImg">
-            <img src="https://source.unsplash.com/1400x900/?old-fashioned,cocktail" alt="Old Fashioned" />
+            <!-- VIGTIGT: Upload images/old-fashioned.jpg til dit repo -->
+            <img src="./images/old-fashioned.jpg" alt="Old Fashioned" />
             <div class="badge">
               <span class="cup" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
@@ -1189,7 +1186,6 @@
   </footer>
 
   <script>
-    // Book knapperne vælger timer (og browseren scroller til #booking via href)
     function setTimer(value){
       var select = document.getElementById('timerSelect');
       if(!select) return;
